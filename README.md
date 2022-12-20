@@ -1,2 +1,2 @@
 # ToDoList
-typescript 
+typescript 학습
