@@ -1,2 +1,2 @@
 # ToDoList
-typescript 연습
+typescript 
