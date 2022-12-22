@@ -13,6 +13,19 @@
   }
 }
 
+@font-face{
+  font-family: 'NanumSquareNeo-R';
+  src: url(./assets/fonts/NanumSquareNeo-bRg.ttf);
+}
+@font-face{
+  font-family: 'MaplestoryOTFBold';
+  src: url(./assets/fonts/Maplestory\ OTF\ Bold.otf);
+}
+@font-face{
+  font-family: 'MaplestoryOTFLight';
+  src: url(./assets/fonts/Maplestory\ OTF\ Light.otf);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
