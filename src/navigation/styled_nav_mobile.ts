@@ -13,10 +13,12 @@ export const NavMobileDiv = styled.div`
 export const LogoMobileDiv = styled.div`
     font-size: 20px;
     color: #FFFFFF;
+    cursor: pointer;
 
 `
 export const MenuMobileDiv = styled.div`
 `
 export const MenuMobileImgDiv = styled.img`
     width: 25px;
+    cursor: pointer;
 `

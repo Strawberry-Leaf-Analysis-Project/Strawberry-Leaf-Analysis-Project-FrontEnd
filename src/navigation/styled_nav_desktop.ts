@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from 'react-router-dom';
 export const NavDesktopDiv = styled.div`
     height: 55px;
     background-color: #353535;
@@ -7,15 +7,23 @@ export const NavDesktopDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 30px;
 `
-export const LogoDesktopDiv = styled.div`
+export const StyledLinkTitle = styled(Link)`
+    text-decoration: none;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
     font-size: 30px;
     color: #FFFFFF;
-
-`
-export const MenuDesktopDiv = styled.div`
-`
-export const MenuDesktopImgDiv = styled.img`
-    width: 40px;
-`
+    cursor: pointer;
+`;
+export const StyledLinkText = styled(Link)`
+    text-decoration: none;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+`;

@@ -1,0 +1,1 @@
+export const MenuTitle: Array<String> = ['생장 게시판','나의 생장 일지','로그인','로그아웃']
