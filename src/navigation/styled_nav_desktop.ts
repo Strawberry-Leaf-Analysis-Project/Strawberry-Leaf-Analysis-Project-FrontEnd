@@ -17,7 +17,7 @@ export const StyledLinkTitle = styled(Link)`
     font-size: 30px;
     color: #FFFFFF;
     cursor: pointer;
-`;
+`
 export const StyledLinkText = styled(Link)`
     text-decoration: none;
     &:focus, &:hover, &:visited, &:link, &:active {
@@ -26,4 +26,4 @@ export const StyledLinkText = styled(Link)`
     font-size: 20px;
     color: #FFFFFF;
     cursor: pointer;
-`;
+`

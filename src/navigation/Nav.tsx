@@ -5,7 +5,6 @@ import { NavDesktopDiv, StyledLinkTitle, StyledLinkText } from './styled_nav_des
 import { NavMobileDiv, LogoMobileDiv, MenuMobileDiv, MenuMobileImgDiv } from './styled_nav_mobile'
 import Menu from '../assets/icons/Menu.svg'
 import UserMenu from '../userMenu/Menu'
-import { Link } from 'react-router-dom'
 function Nav() {
   const isDesktopOrMobile = useMediaQuery({ query: '(max-width:768px)' });
   const [togle, setTogle] = useState<boolean>(false);
@@ -24,7 +23,7 @@ function Nav() {
           <StyledLinkTitle to='/'>딸기 Leaf</StyledLinkTitle>
           <StyledLinkText to='/growth_board'>생장 게시판</StyledLinkText>
           <StyledLinkText to='/my_growth_diary'>나의 생장 일지</StyledLinkText>
-          <StyledLinkText to='/login'>로그인</StyledLinkText>
+          <StyledLinkText to='/Singin'>로그인</StyledLinkText>
         </NavDesktopDiv>)
         :
         (<NavMobileDiv>
