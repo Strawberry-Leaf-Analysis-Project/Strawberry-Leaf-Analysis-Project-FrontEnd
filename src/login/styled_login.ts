@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 export const LoginDiv = styled.div`
     display: grid;
     justify-content: center;
-    /* align-items: center; */
+    padding-top: 20px;
     min-height: 100vh;
-    padding-top: 100px;
+    overflow: scroll;
 `
 export const LoginForm = styled.form`
 `
@@ -16,7 +16,6 @@ export const TitleText = styled.div`
 `
 export const LoginCard = styled.div`
     width: 300px;
-    height: 350px;
 `
 export const SubTitleDiv = styled.div`
     display: grid;
