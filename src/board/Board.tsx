@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import axios from 'axios';
 import {
     BoardDiv,
     CardListDiv,
@@ -9,8 +10,7 @@ import {
     EditIcon,
     EditIconDiv,
     SortText
-} from './styled_board'
-import axios from 'axios';
+} from './styled_board';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -45,12 +45,15 @@ function Board() {
         }
     }
     useEffect(() => {
-        axios
+        const getTimeBoard = async() =>{
+            await axios
             .get<any[]>(SORT_TIME)
             .then((response) => {
+
                 setSortTimeBoard(response.data)
-                console.log(response.data)
             })
+        }
+        getTimeBoard()
     }, [])
     const scrollTimeRef = useRef<HTMLInputElement>(null)
     const scrollLookupRef = useRef<HTMLInputElement>(null)
@@ -59,7 +62,7 @@ function Board() {
         return (
             <>
                 {sortTimeBoard.slice(0).reverse().map((element) => (
-                    <CardDiv>
+                    <CardDiv key={element.id}>
                         <Card sx={{ maxWidth: 250, borderRadius: 2, minWidth: 250, boxShadow: 'none' }}>
                             <CardActionArea>
                                 <CardMedia
