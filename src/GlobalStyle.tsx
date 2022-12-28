@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         padding: 0px;
         margin: 0px;
-        background-color: #233279;
-        color: white;
-        font-family: 'NanumSquareNeo-R';
+        background-color: #CCE4FC;
+        color: black;
+        font-family: 'MaplestoryOTFBold';
         /* display: flex;
         flex-direction: column; */
         /* overflow: hidden; */

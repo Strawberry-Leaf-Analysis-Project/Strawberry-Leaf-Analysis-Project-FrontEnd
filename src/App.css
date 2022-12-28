@@ -18,6 +18,11 @@
   src: url(./assets/fonts/NanumSquareNeo-bRg.ttf);
 }
 @font-face{
+  font-family: 'NanumSquareNeo-B';
+  src: url(./assets/fonts/NanumSquareNeo-dEb.ttf);
+  font-weight: bold;
+}
+@font-face{
   font-family: 'MaplestoryOTFBold';
   src: url(./assets/fonts/Maplestory\ OTF\ Bold.otf);
 }
