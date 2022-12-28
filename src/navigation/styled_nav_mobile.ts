@@ -7,6 +7,7 @@ export const NavMobileDiv = styled.div`
     align-items: center;
     padding-left: 15px;
     padding-right: 15px;
+    font-family: 'MaplestoryOTFBold';
 `
 
 export const LogoMobileDiv = styled.div`
@@ -22,7 +23,7 @@ export const StyledLinkMobileTitle = styled(Link)`
     }
     font-size: 17px;
     font-weight: bold;
-    color: #FFFFFF;
+    color: black;
     cursor: pointer;
 ` 
 export const MenuMobileDiv = styled.div`

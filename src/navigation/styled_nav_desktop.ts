@@ -7,6 +7,7 @@ export const NavDesktopDiv = styled.div`
     align-items: center;
     padding-left: 15px;
     padding-right: 30px;
+    font-family: 'MaplestoryOTFBold';
 `
 export const StyledLinkDesktopTitle = styled(Link)`
     text-decoration: none;
@@ -15,7 +16,7 @@ export const StyledLinkDesktopTitle = styled(Link)`
     }
     font-size: 23px;
     font-weight: bold;
-    color: #FFFFFF;
+    color: black;
     cursor: pointer;
 `
 export const StyledLinkText = styled(Link)`
@@ -25,6 +26,6 @@ export const StyledLinkText = styled(Link)`
     }
     font-size: 17px;
     font-weight: bold;
-    color: #FFFFFF;
+    color: black;
     cursor: pointer;
 `

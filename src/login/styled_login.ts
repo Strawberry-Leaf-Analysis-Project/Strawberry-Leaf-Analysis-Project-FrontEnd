@@ -39,8 +39,8 @@ export const TextInput = styled.input`
     -webkit-appearance: none; 
     -moz-appearance: none;
     appearance: none;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-    background-color: #D1D9FC;
+    /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); */
+    background-color: white;
     border: none;
     font-family: inherit;
     font-size: 15px;
@@ -96,6 +96,6 @@ export const SignInLink = styled(Link)`
     }
     font-size: 12px;
     outline: none;
-    color: white;
+    color: black;
     cursor: pointer;
 `   

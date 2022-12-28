@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0px;
         background-color: #CCE4FC;
         color: black;
-        font-family: 'MaplestoryOTFBold';
+        font-family: 'NanumSquareNeo-R';
         /* display: flex;
         flex-direction: column; */
         /* overflow: hidden; */
