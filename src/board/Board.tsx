@@ -91,7 +91,7 @@ function Board() {
     }
     return (
         <>
-            <ModalBoard isModal={isModal}/>
+            <ModalBoard isModal={isModal} setIsModal={setIsModal}/>
             <BoardDiv>
                 <SortText>최신순</SortText>
                 <ArrowDiv>
@@ -122,7 +122,7 @@ function Board() {
                     <IconLeftDiv onClick={()=>moveLikeLeft(scrollLikeRef)}>
                         <ArrowCircleLeftIcon fontSize='large' sx={{ color: 'black' }} />
                     </IconLeftDiv>
-                    <CardListDiv ref={scrollLikeRef} >
+                    <CardListDiv ref={scrollLikeRef}>
                         {CardForm()}
                     </CardListDiv>
                     <IconRightDiv onClick={()=> moveLikeRight(scrollLikeRef)}>

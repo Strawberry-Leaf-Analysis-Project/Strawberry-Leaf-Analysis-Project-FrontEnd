@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const BoardDiv = styled.div`
     min-height: 100vh;
     padding-left: 14px;
