@@ -7,7 +7,6 @@ export const CreateDiv = styled.div`
     justify-content: center;
     padding: 80px;
     gap: 20px;
-    /* height: 100vh; */
 `
 export const TitleInput = styled.input<{isMedia:boolean}>`
     width: ${(props)=>props.isMedia ? '300px' : '500px'};
@@ -18,7 +17,6 @@ export const TitleInput = styled.input<{isMedia:boolean}>`
     -moz-appearance: none;
     appearance: none;
     /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); */
-
     /* background-color: #CCE4FC; */
     border: none;
     font-family: inherit;
@@ -84,6 +82,18 @@ export const ResultImageDiv = styled.div<{isMedia:boolean}>`
 export const UploadText = styled.div`
     color: white;
 `
-export const ResultText = styled.div`
+export const ResultImgText = styled.div`
     color: white;
+`
+export const ResultTextDiv = styled.div<{isMedia:boolean}>`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: ${(props)=>props.isMedia ? '300px' : '500px'};
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+`
+export const ResultText = styled.div`
+    font-size: 15px;
 `

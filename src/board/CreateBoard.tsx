@@ -6,11 +6,13 @@ import {
   ImageInput,
   ImageDiv,
   UploadImage,
-  ResultImage,
   UploadText,
-  ResultText,
+  ResultImgText,
   UploadImageDiv,
-  ResultImageDiv
+  ResultImageDiv,
+  ResultImage,
+  ResultText,
+  ResultTextDiv
 
 } from './styled_create_board'
 import { useMediaQuery } from 'react-responsive'
@@ -53,11 +55,17 @@ function CreateBoard() {
             <UploadImage src={imageFile.viewUrl} isMedia={isDesktopOrMobile} />)}
         </UploadImageDiv>
         <ResultImageDiv isMedia={isDesktopOrMobile}>
-          {/* <ResultImage></ResultImage> */}
-          <ResultText>결과 사진 <br/><br/>대기중</ResultText>
+          <ResultImgText>결과 사진 <br/><br/>대기중</ResultImgText>
         </ResultImageDiv>
-
       </ImageDiv>
+      <ResultTextDiv  isMedia={isDesktopOrMobile} >
+        <ResultText>
+          생장속도 판별 :
+        </ResultText>
+        <ResultText>
+          병충해 판별 :
+        </ResultText>
+      </ResultTextDiv>
     </CreateDiv>
   )
 }
