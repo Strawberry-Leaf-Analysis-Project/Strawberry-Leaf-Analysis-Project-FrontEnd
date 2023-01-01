@@ -27,10 +27,10 @@ function Nav() {
         </NavDesktopDiv>)
         :
         (<NavMobileDiv>
-          <StyledLinkMobileTitle to='/'>Paradise Farm</StyledLinkMobileTitle>
+          <StyledLinkMobileTitle to='/' onClick={()=>setTogle(false)}>Paradise Farm</StyledLinkMobileTitle>
           <MenuMobileDiv>
             <MenuMobileImgDiv src={Menu} onClick={MenuTogle}></MenuMobileImgDiv>
-            {togle ? (<UserMenu />) : (null)}
+            {togle ? (<UserMenu  setTogle={setTogle} />) : (null)}
           </MenuMobileDiv>
         </NavMobileDiv>)}
     </NavDiv>
