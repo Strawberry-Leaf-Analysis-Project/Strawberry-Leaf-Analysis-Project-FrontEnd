@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CreateDiv = styled.div`
+export const CreateDiv = styled.form`
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -96,4 +96,26 @@ export const ResultTextDiv = styled.div<{isMedia:boolean}>`
 `
 export const ResultText = styled.div`
     font-size: 15px;
+`
+export const ResultButton = styled.input`
+    border: none;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+    font-family: inherit;
+    width: 220px;
+    height: 50px;
+    cursor: pointer;
+    transition: all ease 0.5s 0s;
+    font-size: 15px;
+    border-radius: 2px;
+    outline: none;
+    background-color: #515151;
+    color: white;
+ :hover{
+
+    background-color: #5FB636;
+    border-radius: 8px;
+    width: 260px;
+    transition: all ease 0.4s 0s;
+    font-weight: bold;
+ }
 `
