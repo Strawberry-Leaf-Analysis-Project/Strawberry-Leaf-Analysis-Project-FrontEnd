@@ -33,9 +33,11 @@ import {
     moveTimeRight
 } from './scroll/ScrollRight'
 import ModalBoard from '../modal/ModalBoard';
+import { useNavigate } from 'react-router-dom';
 function Board() {
     const [sortTimeBoard, setSortTimeBoard] = useState<any[]>([])
     const [isModal,setIsModal] = useState<boolean>(false);
+
     const onModal =()=>{
         if(isModal){
             setIsModal(false)
@@ -44,6 +46,7 @@ function Board() {
             setIsModal(true)
         }
     }
+
     useEffect(() => {
         const getTimeBoard = async() =>{
             await axios
@@ -58,11 +61,21 @@ function Board() {
     const scrollTimeRef = useRef<HTMLInputElement>(null)
     const scrollLookupRef = useRef<HTMLInputElement>(null)
     const scrollLikeRef = useRef<HTMLInputElement>(null)
+    const navigate = useNavigate();
+    const goViewPage = (element:any)=>{
+        navigate(`./${element.id}/${element.title}`,{
+            state:{
+                title: element.title,
+                
+
+            }
+        })
+    }
     const CardForm = () => {
         return (
             <>
                 {sortTimeBoard.slice(0).reverse().map((element) => (
-                    <CardDiv key={element.id}>
+                    <CardDiv key={element.id} onClick={()=>goViewPage(element)}>
                         <Card sx={{ maxWidth: 250, borderRadius: 2, minWidth: 250, boxShadow: 'none' }}>
                             <CardActionArea>
                                 <CardMedia

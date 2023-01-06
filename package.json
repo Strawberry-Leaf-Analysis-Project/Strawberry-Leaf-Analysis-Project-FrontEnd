@@ -57,6 +57,5 @@
     "@types/styled-components": "^5.1.26",
     "@types/testing-library__jest-dom": "^5.14.5",
     "http-proxy-middleware": "^2.0.6"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

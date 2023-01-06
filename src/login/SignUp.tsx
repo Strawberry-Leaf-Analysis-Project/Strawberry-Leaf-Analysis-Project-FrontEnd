@@ -15,6 +15,7 @@ import {
   StarText,
   StarTextDiv
 } from './styled_singup'
+import { MEMBER } from '../api/ApiStorage';
 function SingUp() {
   let id_state: String = "";
   let password_state: String = "";
@@ -33,8 +34,20 @@ function SingUp() {
   const onChangeName = (e: any) => {
     name_state = e.target.value;
   }
-  const onSubmit = (e: any) => {
+  const onSubmit = async(e: any) => {
     e.preventDefault();
+    if (password_check_state===password_state){
+      await axios.post(MEMBER,{
+        id:id_state,
+        password:password_state,
+        name:name_state
+      }).then((response)=>{
+        console.log(response)
+      })
+    }
+    else{
+      console.log('비밀번호 다름')
+    }
   }
   return (
     <LoginDiv>
