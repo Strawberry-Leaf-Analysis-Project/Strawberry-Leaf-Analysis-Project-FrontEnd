@@ -99,3 +99,6 @@ export const SignInLink = styled(Link)`
     color: black;
     cursor: pointer;
 `   
+export const PasswordCheckText = styled.div`
+    font-size: 11px;
+`

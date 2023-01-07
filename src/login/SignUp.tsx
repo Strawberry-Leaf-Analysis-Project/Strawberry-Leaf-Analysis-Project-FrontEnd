@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import {
   LoginDiv,
@@ -9,7 +9,8 @@ import {
   InputDiv,
   TitleText,
   SubTitleDiv,
-  SubTitleText
+  SubTitleText,
+  PasswordCheckText
 } from './styled_login'
 import {
   StarText,
@@ -21,6 +22,7 @@ function SingUp() {
   let password_state: String = "";
   let password_check_state: String = "";
   let name_state: String = "";
+  const [passwordCheck,setPasswordCheck] = useState<boolean>(false);
   const onChangeId = (e: any) => {
     id_state = e.target.value;
     console.log(id_state);
@@ -37,16 +39,19 @@ function SingUp() {
   const onSubmit = async(e: any) => {
     e.preventDefault();
     if (password_check_state===password_state){
+      setPasswordCheck(false)
       await axios.post(MEMBER,{
         id:id_state,
         password:password_state,
         name:name_state
       }).then((response)=>{
         console.log(response)
+        window.location.replace("/")
       })
     }
     else{
       console.log('비밀번호 다름')
+      setPasswordCheck(true)
     }
   }
   return (
@@ -67,18 +72,21 @@ function SingUp() {
                 <SubTitleText>비밀번호</SubTitleText>
                 <StarText>*</StarText>
               </StarTextDiv>
-              <TextInput type="password" placeholder='Password (8~16자)' onChange={onChangePassword} pattern="{7,15}" required />
+              <TextInput type="password" placeholder='Password (8~16자)' onChange={onChangePassword} minLength={8} maxLength={16} required />
             </SubTitleDiv>
             <SubTitleDiv>
               <StarTextDiv>
                 <SubTitleText>비밀번호 재확인</SubTitleText>
                 <StarText>*</StarText>
               </StarTextDiv>
-              <TextInput type="password" placeholder='Password 와 동일하게 입력' onChange={onChangeCheckPassword} pattern="{7,15}" required />
+              <TextInput type="password" placeholder='Password 와 동일하게 입력' onChange={onChangeCheckPassword} minLength={8} maxLength={16} required />
+              {passwordCheck ? (
+                <PasswordCheckText>비밀번호가 다릅니다.</PasswordCheckText>
+              ):(null)}
             </SubTitleDiv>
             <SubTitleDiv>
               <SubTitleText>이름</SubTitleText>
-              <TextInput type="text" placeholder='한글과 영어만 입력' onChange={onChangeName} pattern="^[ㄱ-ㅎ|가-힣|a-z|A-Z|]+$" />
+              <TextInput type="text" placeholder='한글과 영어만 입력' onChange={onChangeName} pattern="^[ㄱ-ㅎ|가-힣|a-z|A-Z|]+$" required />
             </SubTitleDiv>
             <StarTextDiv>
               <StarText>*</StarText>
