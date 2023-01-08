@@ -29,3 +29,9 @@ export const StyledLinkText = styled(Link)`
     color: black;
     cursor: pointer;
 `
+export const LogoutText = styled.div`
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+`
