@@ -34,6 +34,7 @@ import {
 } from './scroll/ScrollRight'
 import ModalBoard from '../modal/ModalBoard';
 import { useNavigate } from 'react-router-dom';
+import { userData } from '../data/userData'
 function Board() {
     const [sortTimeBoard, setSortTimeBoard] = useState<any[]>([])
     const [isModal,setIsModal] = useState<boolean>(false);
@@ -143,9 +144,13 @@ function Board() {
                     </IconRightDiv>
                 </ArrowDiv>
             </BoardDiv>
+            {userData !== null ? 
+            (
             <EditIconDiv onClick={onModal}>
                 <EditIcon src={Edit} />
             </EditIconDiv>
+            ) : (null)}
+
         </>
     )
 }
