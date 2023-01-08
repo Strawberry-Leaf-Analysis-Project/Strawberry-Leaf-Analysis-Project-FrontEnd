@@ -16,38 +16,30 @@ import {
   StarText,
   StarTextDiv
 } from './styled_singup'
-import { MEMBER } from '../api/ApiStorage';
+import { SING_UP } from '../api/ApiStorage';
 function SingUp() {
-  let id_state: String = "";
-  let password_state: String = "";
-  let password_check_state: String = "";
-  let name_state: String = "";
+  const [idState,setIdState] = useState<string>("")
+  const [passwordState,setPasswordState] = useState<string>("")
+  const [passwordCheckState,setPasswordCheckState] = useState<string>("")
+  const [nameState,setNameState] = useState<string>("")
   const [passwordCheck,setPasswordCheck] = useState<boolean>(false);
   const onChangeId = (e: any) => {
-    id_state = e.target.value;
-    console.log(id_state);
+    setIdState(e.target.value);
   }
   const onChangePassword = (e: any) => {
-    password_state = e.target.value;
+    setPasswordState(e.target.value);
   }
   const onChangeCheckPassword = (e: any) => {
-    password_check_state = e.target.value;
+    setPasswordCheckState(e.target.value);
   }
   const onChangeName = (e: any) => {
-    name_state = e.target.value;
+    setNameState(e.target.value);
   }
   const onSubmit = async(e: any) => {
     e.preventDefault();
-    if (password_check_state===password_state){
+    if (passwordCheckState===passwordState){
       setPasswordCheck(false)
-      await axios.post(MEMBER,{
-        id:id_state,
-        password:password_state,
-        name:name_state
-      }).then((response)=>{
-        console.log(response)
-        window.location.replace("/")
-      })
+      SING_UP(idState,passwordState,nameState)
     }
     else{
       console.log('비밀번호 다름')
@@ -85,7 +77,10 @@ function SingUp() {
               ):(null)}
             </SubTitleDiv>
             <SubTitleDiv>
-              <SubTitleText>이름</SubTitleText>
+              <StarTextDiv>
+                <SubTitleText>이름</SubTitleText>
+                <StarText>*</StarText>
+              </StarTextDiv>
               <TextInput type="text" placeholder='한글과 영어만 입력' onChange={onChangeName} pattern="^[ㄱ-ㅎ|가-힣|a-z|A-Z|]+$" required />
             </SubTitleDiv>
             <StarTextDiv>
