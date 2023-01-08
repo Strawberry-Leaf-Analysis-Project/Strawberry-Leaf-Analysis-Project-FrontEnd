@@ -10,11 +10,13 @@ import CreateBoard from './board/CreateBoard';
 import ViewBoard from './board/viewBoard/ViewBoard';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyle } from './GlobalStyle';
+import { ReactQueryDevtools } from 'react-query/devtools';
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
       <GlobalStyle/>
         <Nav/>
