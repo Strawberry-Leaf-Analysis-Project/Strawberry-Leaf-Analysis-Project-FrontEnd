@@ -9,20 +9,20 @@ function UserMenu({ setTogle, userData }: any) {
   }
   const onLogout =async(title:string)=>{
     if(title==='로그아웃'){
-      await LOGOUT(userData.key)
+      await LOGOUT()
       window.location.replace("/")
     }
   }
   return (
 
     <MenuDiv>
-      {userData !== null ? (MenuLogOutTitle.map((element) => (
-        <MenuTitleDiv to={element.url} onClick={()=>{
+      {userData !== null ? (MenuLogOutTitle.map((element,index) => (
+        <MenuTitleDiv key={index} to={element.url} onClick={()=>{
           onTogle() 
           onLogout(element.title)
         }}> {element.title}</MenuTitleDiv>
-      ))) : (MenuLogInTitle.map((element) => (
-        <MenuTitleDiv to={element.url} onClick={onTogle}> {element.title}</MenuTitleDiv>
+      ))) : (MenuLogInTitle.map((element,index) => (
+        <MenuTitleDiv key={index} to={element.url} onClick={onTogle}> {element.title}</MenuTitleDiv>
       )))}
 
     </MenuDiv>
