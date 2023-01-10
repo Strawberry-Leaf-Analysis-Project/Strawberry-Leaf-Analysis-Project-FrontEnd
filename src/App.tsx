@@ -8,6 +8,7 @@ import Footer from './footer/Footer';
 import Board from './board/Board'
 import CreateBoard from './board/CreateBoard';
 import ViewBoard from './board/viewBoard/ViewBoard';
+import DiaryBoard from './board/DiaryBoard';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyle } from './GlobalStyle';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -22,7 +23,8 @@ function App() {
         <Nav/>
         <Routes>
           <Route path='/growth_board' element={<Board/>}/>
-          <Route path='/growth_board/:id/:title' element={<ViewBoard/>}/>
+          <Route path='/my_growth_diary' element={<DiaryBoard/>}/>
+          <Route path='/growth_board/:key/:title' element={<ViewBoard/>}/>
           <Route path='/growth_board/create_board' element={<CreateBoard/>}/>
           <Route path='/Singin' element={<Signin />}/>
           <Route path='/Singup' element={<SignUp />}/>
