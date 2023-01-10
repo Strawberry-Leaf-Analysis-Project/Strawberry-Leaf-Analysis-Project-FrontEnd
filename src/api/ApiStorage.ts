@@ -1,9 +1,6 @@
 
 // export const BASICAPI = 'http://localhost:5000';
 import axios from "axios";
-
-const MEMBER = '/member/'
-const BOARD = '/board/'
 const board = axios.create(
   {
     baseURL:'/board'
@@ -59,6 +56,9 @@ export const CREATE_BOARD = async(title:string,explain:string,image:File)=>{
   formData.append('image',image);
   await board.post('/',formData).then((res)=>console.log(res))
 }
+export const GET_BOARD = async(key:any)=>{
+  return await board.get(`/${key}/`).then((res)=>res.data)
+}
 export const GET_USER_BOARD = async()=>{
   return await board.get('/personal_board/').then((res)=>res.data)
 }
@@ -80,4 +80,3 @@ export const SORT_TIME = `/sort_time`;
 export const USER_DATA = async(key:number) =>{
   return await member.get(`/${key}`).then((res)=>res.data)
 }
-export const MEMBER_IDCHECK = `${MEMBER}/member_idcheck/`
