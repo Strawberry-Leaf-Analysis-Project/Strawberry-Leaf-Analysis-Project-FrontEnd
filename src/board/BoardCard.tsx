@@ -18,13 +18,7 @@ export const CardForm = (data:any) => {
     const goViewPage = (element:any)=>{
         navigate(`/growth_board/${element.key}/${element.title}`,{
             state:{
-                user: element.user,
-                title: element.title,
-                explain: element.explain,
-                image:element.image,
-                date:element.date,
-                views:element.views,
-                like:element.like
+                key:element.key
             }
         })
     }
@@ -37,7 +31,7 @@ export const CardForm = (data:any) => {
     else{
         return (
             <>
-                {data.data.slice(0).reverse().map((element:any) => (
+                {data.data.map((element:any) => (
                     <CardDiv key={element.id} onClick={()=>goViewPage(element)}>
                         <Card sx={{ maxWidth: is_width, borderRadius: 2, minWidth: is_width, boxShadow: 'none' }}>
                             <CardActionArea>
