@@ -19,7 +19,7 @@ function Nav() {
     }
   };
   const onLogout= async()=>{
-    await LOGOUT(userData.key)
+    await LOGOUT()
     window.location.replace("/")
   }
   return (
