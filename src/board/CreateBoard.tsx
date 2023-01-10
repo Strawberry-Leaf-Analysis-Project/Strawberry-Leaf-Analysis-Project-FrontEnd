@@ -18,14 +18,22 @@ import {
 } from './styled_create_board'
 import { useMediaQuery } from 'react-responsive'
 import axios from 'axios'
-import { SORT_TIME } from '../api/ApiStorage'
+import { SORT_TIME,CREATE_BOARD } from '../api/ApiStorage'
 function CreateBoard() {
   const isDesktopOrMobile = useMediaQuery({ query: '(max-width:768px)' });
-  const [imageFile, setImageFile] = useState<string | any>({
+  interface Image {
+    imageFile:File | any,
+    viewUrl:string | any
+  }
+  interface Input{
+    title:string,
+    explain:string
+  }
+  const [imageFile, setImageFile] = useState<Image>({
     imageFile: "",
     viewUrl: ""
   })
-  const [inputs, setInputs] = useState<string | any>({
+  const [inputs, setInputs] = useState<Input>({
     title: "",
     explain: ""
   })
@@ -63,10 +71,8 @@ function CreateBoard() {
     formData.append('title', title);
     formData.append('explain',explain);
     console.log(imageFile.imageFile['name'])
-    formData.append('image', imageFile.viewUrl);
-    await axios.post(SORT_TIME, formData).then(res => {
-      console.log(res)
-    })
+    formData.append('image', imageFile.imageFile);
+    await CREATE_BOARD(title,explain,imageFile.imageFile)
   }
 
   return (
