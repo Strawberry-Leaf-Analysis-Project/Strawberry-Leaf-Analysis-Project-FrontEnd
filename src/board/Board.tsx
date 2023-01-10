@@ -9,19 +9,13 @@ import {
     IconRightDiv,
     EditIcon,
     EditIconDiv,
-    SortText
+    SortText,
+    LodingImage
 } from './styled_board';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import leaves from '../assets/image/leaves.jpg';
-// import Add from '../assets/icons/Add.svg'
 import Edit from '../assets/icons/Edit.svg'
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import { SORT_TIME } from '../api/ApiStorage'
+import { SORT_TIME,GET_USER_BOARD,GET_ALL_BOARD,GET_LIKE_BOARD,GET_VIEWS_BOARD,GET_DATE_BOARD } from '../api/ApiStorage'
 import {
     moveLikeLeft,
     moveLookupLeft,
@@ -33,12 +27,24 @@ import {
     moveTimeRight
 } from './scroll/ScrollRight'
 import ModalBoard from '../modal/ModalBoard';
-import { useNavigate } from 'react-router-dom';
-import { userData } from '../data/userData'
+import { userData } from '../data/userData';
+import { useQuery } from 'react-query';
+import {CardForm} from './BoardCard'
 function Board() {
     const [sortTimeBoard, setSortTimeBoard] = useState<any[]>([])
     const [isModal,setIsModal] = useState<boolean>(false);
-
+    const like_board = useQuery('like_board', async() => {
+        return await GET_LIKE_BOARD()
+    })
+    const view_board = useQuery('view_board', async() => {
+        return await GET_VIEWS_BOARD()
+    })
+    const date_board = useQuery('date_board', async() => {
+        return await GET_DATE_BOARD()
+    })
+    // const { isLoading, data } = useQuery('all_board', async() => {
+    //     return await GET_ALL_BOARD()
+    // })
     const onModal =()=>{
         if(isModal){
             setIsModal(false)
@@ -47,7 +53,10 @@ function Board() {
             setIsModal(true)
         }
     }
-
+    // useEffect(()=>{
+    //     GET_USER_BOARD()
+    //     GET_ALL_BOARD()
+    // })
     useEffect(() => {
         const getTimeBoard = async() =>{
             await axios
@@ -62,47 +71,6 @@ function Board() {
     const scrollTimeRef = useRef<HTMLInputElement>(null)
     const scrollLookupRef = useRef<HTMLInputElement>(null)
     const scrollLikeRef = useRef<HTMLInputElement>(null)
-    const navigate = useNavigate();
-    const goViewPage = (element:any)=>{
-        navigate(`./${element.id}/${element.title}`,{
-            state:{
-                title: element.title,
-                
-
-            }
-        })
-    }
-    const CardForm = () => {
-        return (
-            <>
-                {sortTimeBoard.slice(0).reverse().map((element) => (
-                    <CardDiv key={element.id} onClick={()=>goViewPage(element)}>
-                        <Card sx={{ maxWidth: 250, borderRadius: 2, minWidth: 250, boxShadow: 'none' }}>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="140"
-                                    image={leaves}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography className='title' gutterBottom variant="h6" component="div" fontFamily="NanumSquareNeo-R" fontSize="17px">
-                                        {element.title}
-                                    </Typography>
-                                    <Typography className='contents' variant="body2" color="text.secondary" fontFamily="NanumSquareNeo-R" fontSize="11px">
-                                        {element.contents}
-                                    </Typography>
-                                    <Typography className='name' variant="body1" fontFamily="NanumSquareNeo-R" fontSize="12px" marginTop='10px'>
-                                        작성자: {element.name}
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                    </CardDiv>
-                ))}
-            </>
-        )
-    }
     return (
         <>
             <ModalBoard isModal={isModal} setIsModal={setIsModal}/>
@@ -113,7 +81,7 @@ function Board() {
                         <ArrowCircleLeftIcon fontSize='large' sx={{ color: 'black' }} />
                     </IconLeftDiv>
                     <CardListDiv ref={scrollTimeRef} >
-                        {CardForm()}
+                        {CardForm(like_board)}
                     </CardListDiv>
                     <IconRightDiv onClick={()=> moveTimeRight(scrollTimeRef)}>
                         <ArrowCircleRightIcon fontSize='large' sx={{ color: 'black' }} />
@@ -125,7 +93,7 @@ function Board() {
                         <ArrowCircleLeftIcon fontSize='large' sx={{ color: 'black' }} />
                     </IconLeftDiv>
                     <CardListDiv ref={scrollLookupRef} >
-                        {CardForm()}
+                        {CardForm(view_board)}
                     </CardListDiv>
                     <IconRightDiv onClick={()=> moveLookupRight(scrollLookupRef)}>
                         <ArrowCircleRightIcon fontSize='large' sx={{ color: 'black' }} />
@@ -137,7 +105,7 @@ function Board() {
                         <ArrowCircleLeftIcon fontSize='large' sx={{ color: 'black' }} />
                     </IconLeftDiv>
                     <CardListDiv ref={scrollLikeRef}>
-                        {CardForm()}
+                        {CardForm(date_board)}
                     </CardListDiv>
                     <IconRightDiv onClick={()=> moveLikeRight(scrollLikeRef)}>
                         <ArrowCircleRightIcon fontSize='large' sx={{ color: 'black' }} />
