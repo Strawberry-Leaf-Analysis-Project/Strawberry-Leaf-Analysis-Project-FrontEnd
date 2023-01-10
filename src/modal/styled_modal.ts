@@ -44,8 +44,6 @@ export const ModalDiv = styled.div<{isModal:boolean}>`
     justify-content: space-around;
     ${(props)=>props.isModal ?  modal : cloose};
     transition: all ease 0.3s;
-        /* animation: ${(props)=> (props.isModal ?css`${modal_show} 0.3s linear` :css`${modal_close} 0.3s linear`)};
-    display: ${(props)=>(props.isModal ?css`flex`:css`none`)}; */
 `
 export const ButtonDiv = styled.div`
   display: flex;

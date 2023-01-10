@@ -8,14 +8,6 @@ import {
     ButtonDiv
 } from './styled_modal'
 function ModalBoard({ isModal,setIsModal }: any) {
-    const onTogle =()=>{
-        if(isModal){
-            setIsModal(false)
-        }
-        else{
-            setIsModal(true)
-        }
-    }
     const onConfirm = ()=>{
         setIsModal(true)
     }
