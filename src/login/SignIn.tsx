@@ -30,7 +30,6 @@ function Signin() {
   }
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    // LOGOUT(18)
     SING_IN(id_state,password_state,setLoginCheck,setUserKey)
     // console.log(USER_DATA(userKey))
   }
