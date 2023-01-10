@@ -16,7 +16,7 @@ export const CardForm = (data:any) => {
     const is_contents = isDesktopOrMobile ? '7px': '11px'
     const is_user = isDesktopOrMobile ? '8px': '12px'
     const goViewPage = (element:any)=>{
-        navigate(`./${element.key}/${element.title}`,{
+        navigate(`/growth_board/${element.key}/${element.title}`,{
             state:{
                 user: element.user,
                 title: element.title,
