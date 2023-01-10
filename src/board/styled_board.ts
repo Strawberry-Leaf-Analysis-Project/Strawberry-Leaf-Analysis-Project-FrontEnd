@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const BoardDiv = styled.div`
-    min-height: 100vh;
+    /* min-height: 100vh; */
     padding-left: 14px;
     padding-right: 14px;
     padding-top: 10px;
@@ -67,4 +67,7 @@ export const SortText = styled.div`
     font-size: 20px;
     font-family: 'NanumSquareNeo-B';
 
+`
+export const LodingImage = styled.img`
+    width: 20px;
 `
