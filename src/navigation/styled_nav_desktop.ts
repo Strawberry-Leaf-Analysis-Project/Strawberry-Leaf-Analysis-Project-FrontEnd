@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+
 export const NavDesktopDiv = styled.div`
     height: 55px;
     display: flex;
@@ -34,4 +35,22 @@ export const LogoutText = styled.div`
     font-weight: bold;
     color: black;
     cursor: pointer;
+`
+export const SearchImgDiv = styled.div`
+    cursor: pointer;
+`
+export const SearchDiv = styled.div`
+    display: flex;
+    gap: 10px;
+    width: 50%;
+    height: 50%;
+    margin-right: 10px;
+`
+export const SearchText = styled.input`
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
 `

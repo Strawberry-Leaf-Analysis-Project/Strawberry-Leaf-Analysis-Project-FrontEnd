@@ -32,3 +32,11 @@ export const MenuMobileImgDiv = styled.img`
     width: 25px;
     cursor: pointer;
 `
+export const SearchText = styled.input`
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 500px;
+    padding: 5px;
+`
