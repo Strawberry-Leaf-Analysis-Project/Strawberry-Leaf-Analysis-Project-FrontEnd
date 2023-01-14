@@ -9,6 +9,7 @@ import Board from './board/Board'
 import CreateBoard from './board/CreateBoard';
 import ViewBoard from './board/viewBoard/ViewBoard';
 import DiaryBoard from './board/DiaryBoard';
+import SearchBoard from './board/searchBoard/SearchBoard';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyle } from './GlobalStyle';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -26,6 +27,7 @@ function App() {
           <Route path='/my_growth_diary' element={<DiaryBoard/>}/>
           <Route path='/growth_board/:key/:title' element={<ViewBoard/>}/>
           <Route path='/growth_board/create_board' element={<CreateBoard/>}/>
+          <Route path='/search/:text' element={<SearchBoard/>}/>
           <Route path='/Singin' element={<Signin />}/>
           <Route path='/Singup' element={<SignUp />}/>
         </Routes>

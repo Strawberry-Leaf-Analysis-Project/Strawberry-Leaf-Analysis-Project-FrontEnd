@@ -39,7 +39,7 @@ export const LogoutText = styled.div`
 export const SearchImgDiv = styled.div`
     cursor: pointer;
 `
-export const SearchDiv = styled.div`
+export const SearchDiv = styled.form`
     display: flex;
     gap: 10px;
     width: 50%;
@@ -53,4 +53,7 @@ export const SearchText = styled.input`
     height: 100%;
     width: 100%;
     padding: 5px;
+`
+export const SearchSubmit = styled.input`
+    display: none;
 `
