@@ -31,19 +31,7 @@ function Signin() {
   const onSubmit = async (e: any) => {
     e.preventDefault();
     SING_IN(id_state,password_state,setLoginCheck,setUserKey)
-    // console.log(USER_DATA(userKey))
   }
-  // const {isLoading,data} = useQuery(['user',userKey],()=>{
-  //   if(userKey!==0){
-  //     return USER_DATA(userKey)
-  //   }
-  // },
-  // // {
-  // //   staleTime: 60 * 10 *10000, // 1분, default >> 0
-  // // 	cacheTime: 60 * 5 * 1000 // 5분, default >> 5분
-  // // }
-  // )
-  // console.log(isLoading,data)
   return (
     <LoginDiv>
       <LoginForm method='post' onSubmit={onSubmit}>
