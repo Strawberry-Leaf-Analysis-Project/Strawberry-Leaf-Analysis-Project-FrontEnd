@@ -1,6 +1,7 @@
 
 // export const BASICAPI = 'http://localhost:5000';
 import axios from "axios";
+import qs from 'qs'
 const board = axios.create(
   {
     baseURL:'/board'
@@ -11,7 +12,6 @@ const member = axios.create(
     baseURL:'/member'
   }
 )
-
 export const SING_UP = async(id:string,password:string,name:string) =>{
    await  member
     .post('/',{
@@ -79,4 +79,11 @@ export const SORT_TIME = `/sort_time`;
 
 export const USER_DATA = async(key:number) =>{
   return await member.get(`/${key}`).then((res)=>res.data)
+}
+export const SEARCH_DATA = async(search:string) =>{
+  return await board.get(`/search/`,{
+    params:{
+      search:search
+    }
+  }).then((res)=>res.data)
 }
