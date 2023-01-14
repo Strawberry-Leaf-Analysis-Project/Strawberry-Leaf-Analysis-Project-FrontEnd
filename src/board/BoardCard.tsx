@@ -39,6 +39,7 @@ export const CardForm = (data:any) => {
                                     component="img"
                                     height={is_height}
                                     image={element.image}
+                                    loading='lazy'
                                 />
                                 <CardContent>
                                     <Typography className='title' gutterBottom variant="h6" component="div" fontFamily="NanumSquareNeo-R" fontSize={is_title}>
