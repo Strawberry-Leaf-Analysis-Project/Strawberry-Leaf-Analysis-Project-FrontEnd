@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# Strawberry-Leaf-Analysis-Project-FrontEnd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> The front-end part of the strawberry leaf analysis project<br>딸기 잎 분석 프로젝트의 프론트엔드 파트
 
-## Available Scripts
+# Explain
+- It is in charge of the front end of the strawberry leaf growth confirmation service that is underway as an industry-academia-related project.<br>산학 연계 프로젝트로 진행하고 있는 딸기 잎에 따른 생장상태 파악 서비스의 프론트엔드 파트를 담당하는 부분 입니다.
 
-In the project directory, you can run:
+# Install
 
-### `npm start`
+**npm or yarn must be installed.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### npm i
+### npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+***or***
 
-### `npm test`
+### yarn
+### yarn start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Core
+<img src="https://img.shields.io/badge/Java_Script-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
+<img src="https://img.shields.io/badge/Type_Script-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## HTTP
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## State
+<img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Style
+<img src="https://img.shields.io/badge/styled_components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Participants
+- cOcOpang: cocopang178@gmail.com
