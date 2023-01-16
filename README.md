@@ -33,4 +33,4 @@
 <img src="https://img.shields.io/badge/styled_components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
 
 # Participants
-- cOcOpang: cocopang178@gmail.com
+- c0c0pang: cocopang178@gmail.com
