@@ -4,7 +4,7 @@ export const DiaryBoardDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 30px;
+    padding: 20px;
 `
 export const DiaryDetailDiv = styled.div`
     display: flex;
