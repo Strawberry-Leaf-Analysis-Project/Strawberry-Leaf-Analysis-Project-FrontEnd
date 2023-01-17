@@ -15,6 +15,7 @@ export const CardListDiv = styled.div`
     scroll-behavior: smooth;
     overflow: auto;
     scroll-snap-type: x mandatory;
+    
 `
 export const CardDiv = styled.div`
     scroll-snap-align: start;
@@ -35,6 +36,8 @@ export const CardDiv = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    scroll-behavior: smooth;
 `
 export const ArrowDiv = styled.div`
     display: flex;
