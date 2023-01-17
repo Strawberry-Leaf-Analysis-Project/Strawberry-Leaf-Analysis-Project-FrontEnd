@@ -7003,15 +7003,15 @@ __metadata:
   linkType: hard
 
 "glob@npm:^8.0.1":
-  version: 8.0.3
-  resolution: "glob@npm:8.0.3"
+  version: 8.1.0
+  resolution: "glob@npm:8.1.0"
   dependencies:
     fs.realpath: ^1.0.0
     inflight: ^1.0.4
     inherits: 2
     minimatch: ^5.0.1
     once: ^1.3.0
-  checksum: 50bcdea19d8e79d8de5f460b1939ffc2b3299eac28deb502093fdca22a78efebc03e66bf54f0abc3d3d07d8134d19a32850288b7440d77e072aa55f9d33b18c5
+  checksum: 92fbea3221a7d12075f26f0227abac435de868dd0736a17170663783296d0dd8d3d532a5672b4488a439bf5d7fb85cdd07c11185d6cd39184f0385cbdfb86a47
   languageName: node
   linkType: hard
 
@@ -11202,6 +11202,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-scroll-motion@npm:^0.3.2":
+  version: 0.3.2
+  resolution: "react-scroll-motion@npm:0.3.2"
+  peerDependencies:
+    react: ^18.0.11
+    react-dom: ^18.0.11
+  checksum: 609fd96b75c9a622680aa225a04a43314574d538773acb532c7f35933750f6621b4d640138f79439b6995c55202350f347cfcedaa2053b95655ea2fe6005ad98
+  languageName: node
+  linkType: hard
+
 "react-transition-group@npm:^4.4.5":
   version: 4.4.5
   resolution: "react-transition-group@npm:4.4.5"
@@ -11729,6 +11739,13 @@ __metadata:
     ajv-formats: ^2.1.1
     ajv-keywords: ^5.0.0
   checksum: c843e92fdd1a5c145dbb6ffdae33e501867f9703afac67bdf35a685e49f85b1dcc10ea250033175a64bd9d31f0555bc6785b8359da0c90bcea30cf6dfbb55a8f
+  languageName: node
+  linkType: hard
+
+"scroll-out@npm:^2.2.12":
+  version: 2.2.12
+  resolution: "scroll-out@npm:2.2.12"
+  checksum: f67b865dc8bd23ca4786ebf49e66ced96613d05c5c6a00400c360da3090ba34df0a3fb4015039227323c727293a9ca5ce210b1b076924ee82f82b9eb4c2a0289
   languageName: node
   linkType: hard
 
@@ -12663,6 +12680,8 @@ __metadata:
     react-responsive: ^9.0.2
     react-router-dom: ^6.6.0
     react-scripts: 5.0.1
+    react-scroll-motion: ^0.3.2
+    scroll-out: ^2.2.12
     styled-components: ^5.3.6
     typescript: ^4.9.4
     web-vitals: ^2.1.4
