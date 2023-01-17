@@ -13,6 +13,7 @@ import SearchBoard from './board/searchBoard/SearchBoard';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyle } from './GlobalStyle';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import MainPage from './main/MainPage';
 const queryClient = new QueryClient();
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <GlobalStyle/>
         <Nav/>
         <Routes>
+          <Route path='/' element={<MainPage/>}/>
           <Route path='/growth_board' element={<Board/>}/>
           <Route path='/my_growth_diary' element={<DiaryBoard/>}/>
           <Route path='/growth_board/:key/:title' element={<ViewBoard/>}/>
