@@ -4,10 +4,9 @@ export const LoginDiv = styled.div`
     display: grid;
     justify-content: center;
     padding-top: 20px;
-    min-height: 100vh;
-    overflow: scroll;
 `
 export const LoginForm = styled.form`
+
 `
 export const TitleText = styled.div`
     text-align: center;
