@@ -10,10 +10,12 @@ import CreateBoard from './board/CreateBoard';
 import ViewBoard from './board/viewBoard/ViewBoard';
 import DiaryBoard from './board/DiaryBoard';
 import SearchBoard from './board/searchBoard/SearchBoard';
+import MainPage from './main/MainPage';
+import InfoSearch from './login/infoSearch/InfoSearch';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyle } from './GlobalStyle';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import MainPage from './main/MainPage';
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
           <Route path='/growth_board/create_board' element={<CreateBoard/>}/>
           <Route path='/search/:text' element={<SearchBoard/>}/>
           <Route path='/Singin' element={<Signin />}/>
+          <Route path='/Singin/:type' element={<InfoSearch/>}/>
           <Route path='/Singup' element={<SignUp />}/>
         </Routes>
         <Footer/>
