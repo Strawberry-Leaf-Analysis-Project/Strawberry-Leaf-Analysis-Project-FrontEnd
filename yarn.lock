@@ -3145,6 +3145,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/nodemailer@npm:^6.4.7":
+  version: 6.4.7
+  resolution: "@types/nodemailer@npm:6.4.7"
+  dependencies:
+    "@types/node": "*"
+  checksum: dc2a33a89135e04a5bea4921e8645e8453b90e3c3b05f0646f05071c5951ab697ea49ea1e503a690f04cb0a6abfc54967325c5a4036356793cfbb64ba64fb141
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
@@ -9417,6 +9426,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nodemailer@npm:^6.9.0":
+  version: 6.9.0
+  resolution: "nodemailer@npm:6.9.0"
+  checksum: 152d38de71582436d8c6067dfa6a3ddae738437b6f9be9211bd22cf92b2f92786dbef4a4d2ca0282e76b18f0274a7fb6ec5a7acc22f57bdd05559a6ec379dd5c
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^6.0.0":
   version: 6.0.0
   resolution: "nopt@npm:6.0.0"
@@ -12664,6 +12680,7 @@ __metadata:
     "@testing-library/user-event": ^13.5.0
     "@types/jest": ^27.5.2
     "@types/node": ^16.18.10
+    "@types/nodemailer": ^6.4.7
     "@types/react": ^18.0.26
     "@types/react-dom": ^18.0.9
     "@types/react-responsive": ^8.0.5
@@ -12673,6 +12690,7 @@ __metadata:
     "@types/testing-library__jest-dom": ^5.14.5
     axios: ^1.2.1
     http-proxy-middleware: ^2.0.6
+    nodemailer: ^6.9.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-horizontal-scrolling: ^0.1.13
