@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FooterCenter = styled.div`
     display: flex;
     justify-content: center;
-
+    margin-top: 100px;
 `
 
 export const FooterDiv = styled.div`
