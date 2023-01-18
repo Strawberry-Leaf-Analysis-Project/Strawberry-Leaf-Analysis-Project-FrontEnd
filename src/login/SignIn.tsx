@@ -17,11 +17,13 @@ import {
   SubTitleText
 } from './styled_login'
 import { SING_IN,USER_DATA,LOGOUT } from '../api/ApiStorage';
+import { useNavigate } from 'react-router-dom';
 function Signin() {
   const [id_state,setIdState] = useState<string>("")
   const [password_state,setPassword_state] = useState<string>("")
   const [userKey,setUserKey] = useState<number>(0)
   const [loginCheck, setLoginCheck] = useState(true)
+  const navigate = useNavigate();
   const onChangeId = (e: any) => {
     setIdState(e.target.value);
   }
@@ -31,6 +33,12 @@ function Signin() {
   const onSubmit = async (e: any) => {
     e.preventDefault();
     SING_IN(id_state,password_state,setLoginCheck,setUserKey)
+  }
+  const goIdSearch = () =>{
+    navigate('/Singin/IdSearch')
+  }
+  const goPasswordSearch = () =>{
+    navigate('/Singin/PasswordSearch')
   }
   return (
     <LoginDiv>
@@ -53,9 +61,9 @@ function Signin() {
               )}
             <ButtonInput type="submit" value="로그인" />
             <SignInLinkDiv>
-              <SerachText>아이디 찾기</SerachText>
+              <SerachText onClick={goIdSearch}>아이디 찾기</SerachText>
               <BoundaryText>|</BoundaryText>
-              <SerachText>비밀번호 찾기</SerachText>
+              <SerachText onClick={goPasswordSearch}>비밀번호 찾기</SerachText>
               <BoundaryText>|</BoundaryText>
               <SignInLink to='/Singup'>회원가입</SignInLink>
             </SignInLinkDiv>
