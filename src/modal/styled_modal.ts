@@ -50,7 +50,7 @@ export const ButtonDiv = styled.div`
   gap: 20px;
 `
 export const TitleText  = styled.div`
-
+  font-weight: bold;
 `
 export const ConfirmButton = styled(Link)<{isModal:boolean}>`
   display: flex;
@@ -60,6 +60,7 @@ export const ConfirmButton = styled(Link)<{isModal:boolean}>`
   height: 30px;
   border-radius: 5px;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
   :hover{
     transition: all ease 0.3s 0s;
     background-color: #5FB636;
@@ -80,6 +81,24 @@ export const CancelButton = styled.div<{isModal:boolean}>`
   height: 30px;
   border-radius: 5px;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  cursor: pointer;
+  :hover{
+    transition: all ease 0.3s 0s;
+    background-color: #515151;
+    color: white;
+ }
+ ${(props)=>props.isModal ?  modal : cloose};
+`
+export const SelectButton = styled.div<{isModal:boolean}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
   cursor: pointer;
   :hover{
     transition: all ease 0.3s 0s;
