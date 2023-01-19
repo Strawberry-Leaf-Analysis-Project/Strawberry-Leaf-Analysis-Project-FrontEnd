@@ -7,7 +7,7 @@ import Nav from './navigation/Nav'
 import Footer from './footer/Footer';
 import Board from './board/Board'
 import CreateBoard from './board/CreateBoard';
-import ViewBoard from './board/viewBoard/ViewBoard';
+import ViewBoard from './board/ViewBoard';
 import DiaryBoard from './board/DiaryBoard';
 import SearchBoard from './board/searchBoard/SearchBoard';
 import MainPage from './main/MainPage';
