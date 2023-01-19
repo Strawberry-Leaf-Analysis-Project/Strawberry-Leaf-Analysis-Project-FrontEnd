@@ -18,7 +18,7 @@ import {
 } from './styled_create_board'
 import { useMediaQuery } from 'react-responsive'
 import axios from 'axios'
-import { SORT_TIME,CREATE_BOARD } from '../api/ApiStorage'
+import { CREATE_BOARD } from '../api/ApiStorage'
 function CreateBoard() {
   const isDesktopOrMobile = useMediaQuery({ query: '(max-width:768px)' });
   interface Image {
