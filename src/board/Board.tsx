@@ -28,7 +28,7 @@ import ModalBoard from '../modal/ModalBoard';
 import { userData } from '../data/userData';
 import { useQuery } from 'react-query';
 import { CardForm } from './BoardCard'
-import loding from '../assets/image/loding.gif'
+import {onModal} from './onModal'
 function Board() {
     const [isModal, setIsModal] = useState<boolean>(false);
     const like_board = useQuery('like_board', async () => {
@@ -40,14 +40,6 @@ function Board() {
     const date_board = useQuery('date_board', async () => {
         return await GET_DATE_BOARD()
     })
-    const onModal = () => {
-        if (isModal) {
-            setIsModal(false)
-        }
-        else {
-            setIsModal(true)
-        }
-    }
     const scrollTimeRef = useRef<HTMLInputElement>(null)
     const scrollLookupRef = useRef<HTMLInputElement>(null)
     const scrollLikeRef = useRef<HTMLInputElement>(null)
@@ -94,11 +86,10 @@ function Board() {
             </BoardDiv>
             {userData !== null ?
                 (
-                    <EditIconDiv onClick={onModal}>
+                    <EditIconDiv onClick={()=>onModal(isModal,setIsModal)}>
                         <EditIcon src={Edit} />
                     </EditIconDiv>
                 ) : (null)}
-
         </>
     )
 }
