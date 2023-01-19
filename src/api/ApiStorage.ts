@@ -12,12 +12,13 @@ const member = axios.create(
     baseURL:'/member'
   }
 )
-export const SING_UP = async(id:string,password:string,name:string) =>{
+export const SING_UP = async(id:string,password:string,name:string,email:string) =>{
    await  member
     .post('/',{
         id:id,
         password:password,
-        name:name
+        name:name,
+        email:email
     })
     .then((res)=>{
         console.log(res)
@@ -71,11 +72,12 @@ export const GET_VIEWS_BOARD = async()=>{
 export const GET_DATE_BOARD = async()=>{
   return await board.get('/date_board/').then((res)=>res.data)
 }
-
+export const DELETE_BOARD = async(key:number)=>{
+  await board.delete(`${key}`)
+}
 export const GET_ALL_BOARD = async()=>{
   return await board.get('/').then((res)=>res.data)
 }
-export const SORT_TIME = `/sort_time`;
 
 export const USER_DATA = async(key:number) =>{
   return await member.get(`/${key}`).then((res)=>res.data)
