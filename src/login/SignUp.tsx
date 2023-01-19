@@ -14,15 +14,18 @@ import {
 } from './styled_login'
 import {
   StarText,
-  StarTextDiv
+  StarTextDiv,
+  EmailSubmit,
+  EamilDiv
 } from './styled_singup'
 import { SING_UP } from '../api/ApiStorage';
 function SingUp() {
-  const [idState,setIdState] = useState<string>("")
-  const [passwordState,setPasswordState] = useState<string>("")
-  const [passwordCheckState,setPasswordCheckState] = useState<string>("")
-  const [nameState,setNameState] = useState<string>("")
-  const [passwordCheck,setPasswordCheck] = useState<boolean>(false);
+  const [idState, setIdState] = useState<string>("")
+  const [passwordState, setPasswordState] = useState<string>("")
+  const [passwordCheckState, setPasswordCheckState] = useState<string>("")
+  const [nameState, setNameState] = useState<string>("")
+  const [emailState, setEmailState] = useState<string>("")
+  const [passwordCheck, setPasswordCheck] = useState<boolean>(false);
   const onChangeId = (e: any) => {
     setIdState(e.target.value);
   }
@@ -35,13 +38,19 @@ function SingUp() {
   const onChangeName = (e: any) => {
     setNameState(e.target.value);
   }
-  const onSubmit = async(e: any) => {
+  const onChangeEmail = (e: any) => {
+    setEmailState(e.target.value);
+  }
+  const onEmailSubmit = ()=>{
+
+  }
+  const onSubmit = async (e: any) => {
     e.preventDefault();
-    if (passwordCheckState===passwordState){
+    if (passwordCheckState === passwordState) {
       setPasswordCheck(false)
-      SING_UP(idState,passwordState,nameState)
+      SING_UP(idState, passwordState, nameState, emailState)
     }
-    else{
+    else {
       console.log('비밀번호 다름')
       setPasswordCheck(true)
     }
@@ -74,7 +83,7 @@ function SingUp() {
               <TextInput type="password" placeholder='Password 와 동일하게 입력' onChange={onChangeCheckPassword} minLength={8} maxLength={16} required />
               {passwordCheck ? (
                 <PasswordCheckText>비밀번호가 다릅니다.</PasswordCheckText>
-              ):(null)}
+              ) : (null)}
             </SubTitleDiv>
             <SubTitleDiv>
               <StarTextDiv>
@@ -82,6 +91,16 @@ function SingUp() {
                 <StarText>*</StarText>
               </StarTextDiv>
               <TextInput type="text" placeholder='한글과 영어만 입력' onChange={onChangeName} pattern="^[ㄱ-ㅎ|가-힣|a-z|A-Z|]+$" required />
+            </SubTitleDiv>
+            <SubTitleDiv>
+              <StarTextDiv>
+                <SubTitleText>이메일</SubTitleText>
+                <StarText>*</StarText>
+              </StarTextDiv>
+              <EamilDiv>
+                <TextInput type="email" placeholder='E-mail 입력' onChange={onChangeEmail} required />
+                <EmailSubmit onClick={onEmailSubmit}>확인</EmailSubmit>
+              </EamilDiv>
             </SubTitleDiv>
             <StarTextDiv>
               <StarText>*</StarText>
