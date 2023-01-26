@@ -24,21 +24,21 @@ import {
     ZoomIn,
     ZoomOut
 } from "react-scroll-motion";
-import Before from '../assets/image/Before.png'
-import After from '../assets/image/After.png'
+import Before from '../assets/image/Before.jpg'
+import After from '../assets/image/After.jpg'
 function MainPage() {
-    const ZoomInScrollOut = batch(StickyOut(), Fade(),);
-    const FadeUp = batch(Fade(), Move(), Sticky());
+    const ZoomInScrollOut = batch(StickyOut(), Fade());
+    const FadeUp = batch(Fade(), Move(),StickyOut(),);
     return (
         <ScrollContainer >
             <ScrollPage>
-                <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+                <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -130))}>
                     <FirstText>Paradise Farm 으로 오신것을 환영합니다. 😃</FirstText>
                 </Animator>
             </ScrollPage>
             <ScrollPage>
-                <Animator animation={ZoomInScrollOut}>
-                    <FirstText>Instance Segmentation 학습 결과 입니다.</FirstText>
+                <Animator animation={FadeUp}>
+                    <FirstText>Instance Segmentation <br/>학습 결과 입니다.</FirstText>
                     <ImageDiv>
                         <LableDiv>
                             <LableText>Before</LableText>
