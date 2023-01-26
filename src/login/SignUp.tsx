@@ -18,7 +18,7 @@ import {
   EmailSubmit,
   EamilDiv
 } from './styled_singup'
-import { SING_UP } from '../api/ApiStorage';
+import { MEMBER_API } from '../api/ApiStorage';
 function SingUp() {
   const [idState, setIdState] = useState<string>("")
   const [passwordState, setPasswordState] = useState<string>("")
@@ -48,7 +48,7 @@ function SingUp() {
     e.preventDefault();
     if (passwordCheckState === passwordState) {
       setPasswordCheck(false)
-      SING_UP(idState, passwordState, nameState, emailState)
+      MEMBER_API.SING_UP(idState, passwordState, nameState, emailState)
     }
     else {
       console.log('비밀번호 다름')
@@ -66,21 +66,21 @@ function SingUp() {
                 <SubTitleText>아이디</SubTitleText>
                 <StarText>*</StarText>
               </StarTextDiv>
-              <TextInput type="text" placeholder='ID (영문+숫자 4~20자)' onChange={onChangeId} pattern="^[a-zA-Z](?=.{0,28}[0-9])[0-9a-zA-Z]{3,19}$" required />
+              <TextInput width={200} height={20} type="text" placeholder='ID (영문+숫자 4~20자)' onChange={onChangeId} pattern="^[a-zA-Z](?=.{0,28}[0-9])[0-9a-zA-Z]{3,19}$" required />
             </SubTitleDiv>
             <SubTitleDiv>
               <StarTextDiv>
                 <SubTitleText>비밀번호</SubTitleText>
                 <StarText>*</StarText>
               </StarTextDiv>
-              <TextInput type="password" placeholder='Password (8~16자)' onChange={onChangePassword} minLength={8} maxLength={16} required />
+              <TextInput width={200} height={20} type="password" placeholder='Password (8~16자)' onChange={onChangePassword} minLength={8} maxLength={16} required />
             </SubTitleDiv>
             <SubTitleDiv>
               <StarTextDiv>
                 <SubTitleText>비밀번호 재확인</SubTitleText>
                 <StarText>*</StarText>
               </StarTextDiv>
-              <TextInput type="password" placeholder='Password 와 동일하게 입력' onChange={onChangeCheckPassword} minLength={8} maxLength={16} required />
+              <TextInput width={200} height={20} type="password" placeholder='Password 와 동일하게 입력' onChange={onChangeCheckPassword} minLength={8} maxLength={16} required />
               {passwordCheck ? (
                 <PasswordCheckText>비밀번호가 다릅니다.</PasswordCheckText>
               ) : (null)}
@@ -90,7 +90,7 @@ function SingUp() {
                 <SubTitleText>이름</SubTitleText>
                 <StarText>*</StarText>
               </StarTextDiv>
-              <TextInput type="text" placeholder='한글과 영어만 입력' onChange={onChangeName} pattern="^[ㄱ-ㅎ|가-힣|a-z|A-Z|]+$" required />
+              <TextInput width={200} height={20} type="text" placeholder='한글과 영어만 입력' onChange={onChangeName} pattern="^[ㄱ-ㅎ|가-힣|a-z|A-Z|]+$" required />
             </SubTitleDiv>
             <SubTitleDiv>
               <StarTextDiv>
@@ -98,7 +98,7 @@ function SingUp() {
                 <StarText>*</StarText>
               </StarTextDiv>
               <EamilDiv>
-                <TextInput type="email" placeholder='E-mail 입력' onChange={onChangeEmail} required />
+                <TextInput width={200} height={20} type="email" placeholder='E-mail 입력' onChange={onChangeEmail} required />
                 <EmailSubmit onClick={onEmailSubmit}>확인</EmailSubmit>
               </EamilDiv>
             </SubTitleDiv>

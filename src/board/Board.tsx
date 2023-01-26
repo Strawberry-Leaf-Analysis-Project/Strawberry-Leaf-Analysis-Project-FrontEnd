@@ -13,7 +13,7 @@ import {
 import Edit from '../assets/icons/Edit.svg'
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import { GET_USER_BOARD, GET_ALL_BOARD, GET_LIKE_BOARD, GET_VIEWS_BOARD, GET_DATE_BOARD } from '../api/ApiStorage'
+import { BOARD_API} from '../api/ApiStorage'
 import {
     moveLikeLeft,
     moveLookupLeft,
@@ -32,13 +32,13 @@ import {onModal} from './onModal'
 function Board() {
     const [isModal, setIsModal] = useState<boolean>(false);
     const like_board = useQuery('like_board', async () => {
-        return await GET_LIKE_BOARD()
+        return await BOARD_API.GET_LIKE_BOARD()
     })
     const view_board = useQuery('view_board', async () => {
-        return await GET_VIEWS_BOARD()
+        return await BOARD_API.GET_VIEWS_BOARD()
     })
     const date_board = useQuery('date_board', async () => {
-        return await GET_DATE_BOARD()
+        return await BOARD_API.GET_DATE_BOARD()
     })
     const scrollTimeRef = useRef<HTMLInputElement>(null)
     const scrollLookupRef = useRef<HTMLInputElement>(null)

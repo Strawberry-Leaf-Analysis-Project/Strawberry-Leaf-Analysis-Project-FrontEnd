@@ -18,7 +18,7 @@ import {
   TitleText,
   ViewBoardDiv,
 } from './styled_viewBoard'
-import { GET_BOARD } from '../api/ApiStorage';
+import { BOARD_API } from '../api/ApiStorage';
 import { useQuery } from 'react-query';
 import loding from '/Users/cocopang/Desktop/Strawberry-Leaf-Analysis-Project-FrontEnd/src/assets/image/loding.gif'
 import { EditIcon, EditIconDiv } from './styled_board';
@@ -30,7 +30,7 @@ function ViewBoard() {
   const { state } = useLocation()
   const [isModal, setIsModal] = useState<boolean>(false)
   const get_board = useQuery('get_board', async () => {
-    return await GET_BOARD(state.key)
+    return await BOARD_API.GET_BOARD(state.key)
   })
   const idCheck=()=>{
     if (userData !==null && userData.id === get_board.data.user){

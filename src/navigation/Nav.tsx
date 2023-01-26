@@ -12,7 +12,7 @@ import {
   SearchSubmit
 } from './styled_nav_desktop'
 import { NavMobileDiv, StyledLinkMobileTitle, MenuMobileDiv, MenuMobileImgDiv } from './styled_nav_mobile'
-import { LOGOUT } from '../api/ApiStorage'
+import { MEMBER_API } from '../api/ApiStorage'
 import Menu from '../assets/icons/Menu.svg'
 import UserMenu from '../userMenu/Menu'
 import { userData } from '../data/userData'
@@ -31,7 +31,7 @@ function Nav() {
     }
   };
   const onLogout = async () => {
-    await LOGOUT()
+    await MEMBER_API.LOGOUT()
     window.location.replace("/")
   }
   const onSearch= (e:any) =>{

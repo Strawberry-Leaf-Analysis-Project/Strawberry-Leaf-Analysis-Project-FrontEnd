@@ -2,14 +2,14 @@ import React from 'react'
 import { MenuDiv } from './styled_Menu'
 import { MenuLogInTitle,MenuLogOutTitle } from './MenuTitle'
 import { MenuTitleDiv } from './styled_Menu'
-import { LOGOUT } from "../api/ApiStorage"
+import { MEMBER_API } from "../api/ApiStorage"
 function UserMenu({ setTogle, userData }: any) {
   const onTogle = () => {
     setTogle(false)
   }
   const onLogout =async(title:string)=>{
     if(title==='로그아웃'){
-      await LOGOUT()
+      await MEMBER_API.LOGOUT()
       window.location.replace("/")
     }
   }

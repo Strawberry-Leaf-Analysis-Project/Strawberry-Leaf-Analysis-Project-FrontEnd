@@ -16,7 +16,7 @@ import {
   SubTitleDiv,
   SubTitleText
 } from './styled_login'
-import { SING_IN,USER_DATA,LOGOUT } from '../api/ApiStorage';
+import { MEMBER_API } from '../api/ApiStorage';
 import { useNavigate } from 'react-router-dom';
 function Signin() {
   const [id_state,setIdState] = useState<string>("")
@@ -32,7 +32,7 @@ function Signin() {
   }
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    SING_IN(id_state,password_state,setLoginCheck,setUserKey)
+    MEMBER_API.SING_IN(id_state,password_state,setLoginCheck,setUserKey)
   }
   const goIdSearch = () =>{
     navigate('/Singin/IdSearch')
@@ -48,11 +48,11 @@ function Signin() {
             <TitleText>Paradise Farm</TitleText>
             <SubTitleDiv>
               <SubTitleText>ID</SubTitleText>
-              <TextInput type="text" placeholder='ID' onChange={onChangeId} />
+              <TextInput width={200} height={20} type="text" placeholder='ID' onChange={onChangeId} />
             </SubTitleDiv>
             <SubTitleDiv>
               <SubTitleText>Password</SubTitleText>
-              <TextInput type="password" placeholder='Password' onChange={onChangePassword} />
+              <TextInput width={200} height={20} type="password" placeholder='Password' onChange={onChangePassword} />
             </SubTitleDiv>
             {loginCheck ? (
               null
