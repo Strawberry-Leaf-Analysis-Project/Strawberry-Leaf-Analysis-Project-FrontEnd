@@ -32,9 +32,9 @@ export const InputDiv = styled.div`
   padding: 20px;
   gap: 35px;
 `
-export const TextInput = styled.input`
-    width:200px;
-    height: 20px;
+export const TextInput = styled.input<{width:number,height:number}>`
+    width: ${(props)=>props.width}px;
+    height: ${(props)=>props.height}px;
     -webkit-appearance: none; 
     -moz-appearance: none;
     appearance: none;
