@@ -1,5 +1,4 @@
-
-// export const BASICAPI = 'http://localhost:5000';
+import { Diary, Image, Input } from '../type/Interface'
 import axios from "axios";
 const board = axios.create(
   {
@@ -11,7 +10,12 @@ const member = axios.create(
     baseURL: '/member',
   }
 )
-export class MemberApi {
+const plants_group = axios.create(
+  {
+    baseURL: '/plants_group',
+  }
+)
+class MemberApi {
   SING_UP = async (id: string, password: string, name: string, email: string) => {
     await member
       .post('/', {
@@ -48,15 +52,19 @@ export class MemberApi {
   USER_DATA = async (key: number) => {
     return await member.get(`/${key}`).then((res) => res.data)
   }
-
+  LOGOUT = async () => {
+    await member.post('/logout/')
+    window.localStorage.removeItem('data')
+  }
 }
 
-export class BoardApi {
-  CREATE_BOARD = async (title: string, explain: string, image: File) => {
+class BoardApi {
+  CREATE_BOARD = async (text: Input, image: Image) => {
     const formData = new FormData()
-    formData.append('title', title);
-    formData.append('explain', explain);
-    formData.append('image', image);
+    formData.append('title', text.title);
+    formData.append('explain', text.explain);
+    formData.append('image', image.imageFile);
+    formData.append('id', text.id);
     await board.post('/', formData).then((res) => console.log(res))
   }
   GET_BOARD = async (key: any) => {
@@ -87,10 +95,8 @@ export class BoardApi {
       }
     }).then((res) => res.data)
   }
-  
+
 }
-
-
 class DiseaseApi {
 
 }
@@ -101,5 +107,20 @@ class PlantsByDiseaseApi {
 
 }
 class PlantsGroupApi {
-
+  GET_GROUP = async() => {
+    return await plants_group.get('/').then((res)=>res.data)
+  }
+  POST_GROUP = async (data: Diary) => {
+    await plants_group.post('/', {
+      name: data.name,
+      date: data.date,
+      status: data.status,
+      id:data.id,
+    }).then((res) => console.log(res))
+  }
 }
+export const BOARD_API = new BoardApi()
+
+export const MEMBER_API = new MemberApi()
+
+export const PLANTS_GROUP_API = new PlantsGroupApi()
