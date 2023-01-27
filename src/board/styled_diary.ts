@@ -1,10 +1,20 @@
 import styled from "styled-components";
-
+export const DiaryDiv = styled.div`
+    height: 100vh;
+`
 export const DiaryBoardDiv = styled.div`
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between;
+    align-items: center;
+    gap: 20px; */
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 20px;
+`
+export const DiaryContentDiv = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
 `
 export const DiaryDetailDiv = styled.div`
     display: flex;
@@ -33,3 +43,6 @@ export const DiaryBoardListDiv = styled.div<{isMedia:boolean}>`
     justify-items: center;
     gap: 10px;
 `    
+
+export const GroupText = styled.div`
+`
