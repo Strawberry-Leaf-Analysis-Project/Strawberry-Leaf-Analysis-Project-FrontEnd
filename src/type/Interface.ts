@@ -1,7 +1,8 @@
 export interface Diary {
     name: string,
     date: string,
-    status: string
+    status: string,
+    id:string
 }
 export interface Image {
     imageFile: File | any,
@@ -9,5 +10,6 @@ export interface Image {
 }
 export interface Input {
     title: string,
-    explain: string
+    explain: string,
+    id:string
 }
