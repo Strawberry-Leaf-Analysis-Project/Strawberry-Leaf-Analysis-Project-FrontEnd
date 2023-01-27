@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom'
 function Nav() {
   const isDesktopOrMobile = useMediaQuery({ query: '(max-width:768px)' });
   const [togle, setTogle] = useState<boolean>(false);
-  const [serach,setSerach] = useState<string>('');
+  const [serach, setSerach] = useState<string>('');
   const navigate = useNavigate()
   const MenuTogle = () => {
     if (togle) {
@@ -34,18 +34,18 @@ function Nav() {
     await MEMBER_API.LOGOUT()
     window.location.replace("/")
   }
-  const onSearch= (e:any) =>{
+  const onSearch = (e: any) => {
     e.preventDefault();
     setSerach(e.target.value)
   }
-  const onSubmit= (e:any) =>{
+  const onSubmit = (e: any) => {
     e.preventDefault();
-    navigate(`/search/${serach}`,{
-      state:{
-          text:serach
+    navigate(`/search/${serach}`, {
+      state: {
+        text: serach
       }
-  })
-  window.location.replace(`./${serach}`)
+    })
+    window.location.replace(`./${serach}`)
   }
   return (
     <NavDiv>
@@ -53,11 +53,11 @@ function Nav() {
         (<NavDesktopDiv>
           <StyledLinkDesktopTitle to='/'>Paradise Farm</StyledLinkDesktopTitle>
           <SearchDiv onSubmit={onSubmit}>
-            <SearchText type='text' placeholder='제목,작성자로 검색하세요.' onChange={onSearch}/>
-            <SearchSubmit type='submit'/>
+            <SearchText type='text' placeholder='제목,작성자로 검색하세요.' onChange={onSearch} />
+            <SearchSubmit type='submit' />
           </SearchDiv>
           <StyledLinkText to='/growth_board'>생장 게시판</StyledLinkText>
-          <StyledLinkText to='/my_growth_diary'>나의 생장 일지</StyledLinkText>
+          {userData !== null ? (<StyledLinkText to='/my_growth_diary'>나의 생장 일지</StyledLinkText>) : (null)}
           {userData !== null ? (<LogoutText onClick={onLogout}>로그아웃</LogoutText>) : (<StyledLinkText to='/Singin'>로그인</StyledLinkText>)}
 
         </NavDesktopDiv>)
@@ -65,8 +65,8 @@ function Nav() {
         (<NavMobileDiv>
           <StyledLinkMobileTitle to='/' onClick={() => setTogle(false)}>Paradise Farm</StyledLinkMobileTitle>
           <SearchDiv onSubmit={onSubmit}>
-            <SearchText placeholder='제목,작성자로 검색하세요.' onChange={onSearch}/>
-            <SearchSubmit type='submit'/>
+            <SearchText placeholder='제목,작성자로 검색하세요.' onChange={onSearch} />
+            <SearchSubmit type='submit' />
           </SearchDiv>
           <MenuMobileDiv>
             <MenuMobileImgDiv src={Menu} onClick={MenuTogle}></MenuMobileImgDiv>
