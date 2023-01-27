@@ -119,3 +119,9 @@ export const ResultButton = styled.input`
     font-weight: bold;
  }
 `
+export const CategorySelect = styled.select<{isMedia: boolean}>`
+    padding: 5px;
+    width: ${(props) => props.isMedia ? '300px' : '500px'};
+    height: 30px;
+    border-radius: 5px;
+`
