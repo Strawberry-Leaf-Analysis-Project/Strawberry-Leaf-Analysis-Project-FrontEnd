@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
     ModalDiv,
-    CentetDiv,
+    CenterDiv,
     ConfirmButton,
     CancelButton,
     ButtonDiv,
@@ -23,7 +23,7 @@ function ModalSetting({ isModal, setIsModal }: any) {
         setIsModal(false)
     }
     return (
-        <CentetDiv>
+        <CenterDiv>
             <ModalDiv isModal={isModal}>
                 {selecttype === '' ? (
                     <>
@@ -54,7 +54,7 @@ function ModalSetting({ isModal, setIsModal }: any) {
                 ) : (null)}
 
             </ModalDiv>
-        </CentetDiv>
+        </CenterDiv>
     )
 }
 

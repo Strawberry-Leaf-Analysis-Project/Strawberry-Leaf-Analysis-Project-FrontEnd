@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     ModalDiv,
-    CentetDiv,
+    CenterDiv,
     TitleText,
     ConfirmButton,
     CancelButton,
@@ -15,7 +15,7 @@ function ModalBoard({ isModal,setIsModal }: any) {
         setIsModal(false)
     }
     return (
-        <CentetDiv>
+        <CenterDiv>
             <ModalDiv isModal={isModal}>
                 <TitleText>게시글을 작성 하시겠습니까?</TitleText>
                 <ButtonDiv>
@@ -23,7 +23,7 @@ function ModalBoard({ isModal,setIsModal }: any) {
                     <CancelButton onClick={onCancel} isModal={isModal}>취소</CancelButton>
                 </ButtonDiv>
             </ModalDiv>
-        </CentetDiv>
+        </CenterDiv>
     )
 }
 
