@@ -24,16 +24,16 @@ export const cloose = css`
     visibility: hidden;
     animation: ${modal_close} 0.3s linear;
 `
-export const CentetDiv = styled.div`
+export const CenterDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
 `
 export const ModalDiv = styled.div<{isModal:boolean}>`
     display: flex;
-    position: fixed;
-    height: 160px;
-    width: 270px;
+    position: fixed;  
+    height: 200px;
+    width: 280px;
     background: white;
     border-radius: 8px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -44,6 +44,7 @@ export const ModalDiv = styled.div<{isModal:boolean}>`
     justify-content: space-around;
     ${(props)=>props.isModal ?  modal : cloose};
     transition: all ease 0.3s;
+    padding: 10px;
 `
 export const ButtonDiv = styled.div`
   display: flex;
@@ -106,4 +107,20 @@ export const SelectButton = styled.div<{isModal:boolean}>`
     color: white;
  }
  ${(props)=>props.isModal ?  modal : cloose};
+`
+export const SortationSelect = styled.select`
+  padding: 5px;
+  width:  130px;
+  height: 30px;
+  border-radius: 5px;
+`
+export const SortationOption = styled.option`
+`
+export const ContnetText = styled.div`
+  margin-top: 10px;
+`
+export const TextInputDiv = styled.div`
+  display: flex;
+  gap: 10px;
+ margin: 10px;
 `
