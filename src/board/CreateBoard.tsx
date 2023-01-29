@@ -93,21 +93,19 @@ function CreateBoard() {
 
   return (
     <CreateDiv method='post' onSubmit={onSubmitResult} >
-      <TitleInput type='text' name='title' placeholder='제목을 입력해 주세요' isMedia={isDesktopOrMobile} value={title} onChange={onChangeText} required></TitleInput>
       <CategorySelect isMedia={isDesktopOrMobile}>
         {category === null ? (null) : (
-          category.map((element:any)=>{
-            if (element.user === inputs.id){
+          category.map((element: any) => {
+            if (element.user === inputs.id) {
               return <SortationOption value={element.name}>{element.name}</SortationOption>
             }
-            else{
+            else {
               return null
             }
           })
         )}
       </CategorySelect>
-
-
+      <TitleInput type='text' name='title' placeholder='제목을 입력해 주세요' isMedia={isDesktopOrMobile} value={title} onChange={onChangeText} required></TitleInput>
       <ExplainInput name='explain' placeholder='내용을 입력해주세요' isMedia={isDesktopOrMobile} value={explain} onChange={onChangeText} required></ExplainInput>
       <ImageInput type='file' accept='image/*' ref={imageRef} onChange={onChangeUploadHandler}></ImageInput>
       <ImageDiv>
