@@ -32,7 +32,8 @@ function CreateBoard() {
   const [inputs, setInputs] = useState<Input>({
     title: "",
     explain: "",
-    id: ""
+    id: "",
+    group_name:""
   })
   const group = useQuery('group', async () => {
     return await PLANTS_GROUP_API.GET_GROUP()
@@ -77,6 +78,7 @@ function CreateBoard() {
         viewUrl: fileReader.result
       });
     };
+    
   };
   const onSubmitResult = async (e: any) => {
     e.preventDefault();
@@ -88,12 +90,13 @@ function CreateBoard() {
     console.log(imageFile.imageFile['name'])
     formData.append('image', imageFile.imageFile);
     await BOARD_API.CREATE_BOARD(inputs, imageFile)
-    window.location.replace("/")
+    BOARD_API.OUTPUT_BOARD()
+    // window.location.replace("/")
   }
 
   return (
     <CreateDiv method='post' onSubmit={onSubmitResult} >
-      <CategorySelect isMedia={isDesktopOrMobile}>
+      <CategorySelect name='group_name' isMedia={isDesktopOrMobile} onChange={onChangeText}>
         {category === null ? (null) : (
           category.map((element: any) => {
             if (element.user === inputs.id) {
