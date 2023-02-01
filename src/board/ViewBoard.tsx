@@ -20,7 +20,7 @@ import {
 } from './styled_viewBoard'
 import { BOARD_API } from '../api/ApiStorage';
 import { useQuery } from 'react-query';
-import loding from '/Users/cocopang/Desktop/Strawberry-Leaf-Analysis-Project-FrontEnd/src/assets/image/loding.gif'
+import loding from '../assets/image/loding.gif'
 import { EditIcon, EditIconDiv } from './styled_board';
 import { onModal } from './onModal'
 import { userData } from '../data/userData';
