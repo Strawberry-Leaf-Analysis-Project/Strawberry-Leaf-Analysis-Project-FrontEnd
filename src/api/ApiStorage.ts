@@ -61,11 +61,14 @@ class MemberApi {
 class BoardApi {
   CREATE_BOARD = async (text: Input, image: Image) => {
     const formData = new FormData()
+    formData.append('input_image', image.imageFile);
+    formData.append('group_name',text.group_name)
     formData.append('title', text.title);
     formData.append('explain', text.explain);
-    formData.append('image', image.imageFile);
-    formData.append('id', text.id);
-    await board.post('/', formData).then((res) => console.log(res))
+    await board.post('/input_image/', formData).then((res) => console.log(res))
+  }
+  OUTPUT_BOARD = async ()=>{
+    return await board.post('/output_image/').then((res)=> console.log(res.data))
   }
   GET_BOARD = async (key: any) => {
     return await board.get(`/${key}/`).then((res) => res.data)
@@ -115,7 +118,6 @@ class PlantsGroupApi {
       name: data.name,
       date: data.date,
       status: data.status,
-      id:data.id,
     }).then((res) => console.log(res))
   }
 }
