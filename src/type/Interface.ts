@@ -11,5 +11,6 @@ export interface Image {
 export interface Input {
     title: string,
     explain: string,
-    id:string
+    id:string,
+    group_name:string
 }
