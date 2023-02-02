@@ -14,3 +14,7 @@ export interface Input {
     id:string,
     group_name:string
 }
+export interface Output {
+    id:string,
+    output_image:string
+}
