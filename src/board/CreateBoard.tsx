@@ -14,15 +14,16 @@ import {
   ResultText,
   ResultTextDiv,
   ResultButton,
-  CategorySelect
-
+  CategorySelect,
+  LodingImg
 } from './styled_create_board'
 import { useMediaQuery } from 'react-responsive'
 import axios from 'axios'
 import { BOARD_API, PLANTS_GROUP_API } from '../api/ApiStorage'
 import { SortationOption } from '../modal/styled_modal'
-import { Image, Input } from '../type/Interface'
+import { Image, Input, Output } from '../type/Interface'
 import { useQuery } from 'react-query'
+import Bean from '../assets/image/Bean.gif'
 function CreateBoard() {
   const isDesktopOrMobile = useMediaQuery({ query: '(max-width:768px)' });
   const [imageFile, setImageFile] = useState<Image>({
@@ -33,8 +34,14 @@ function CreateBoard() {
     title: "",
     explain: "",
     id: "",
-    group_name:""
+    group_name: "non"
   })
+  const [outputs, setOutputs] = useState<Output>({
+    id: "",
+    output_image: ""
+  })
+  const [loding, setLoding] = useState<boolean>(false)
+  const [write, setWrite] = useState<boolean>(false)
   const group = useQuery('group', async () => {
     return await PLANTS_GROUP_API.GET_GROUP()
   })
@@ -45,7 +52,7 @@ function CreateBoard() {
     else {
       return group.data
     }
-  }, [])
+  }, [group])
   useEffect(() => {
     const GET_DATA: any = window.localStorage.getItem('data')
     setInputs({
@@ -78,25 +85,25 @@ function CreateBoard() {
         viewUrl: fileReader.result
       });
     };
-    
+    setWrite(false)
   };
+  const onLearning = async () => {
+    await BOARD_API.INPUT_BOARD(inputs, imageFile)
+    setWrite(true)
+    setLoding(true)
+    setOutputs(await BOARD_API.OUTPUT_BOARD(inputs))
+    setLoding(false)
+  }
   const onSubmitResult = async (e: any) => {
     e.preventDefault();
-    console.log(title);
-    console.log(explain);
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('explain', explain);
-    console.log(imageFile.imageFile['name'])
-    formData.append('image', imageFile.imageFile);
-    await BOARD_API.CREATE_BOARD(inputs, imageFile)
-    BOARD_API.OUTPUT_BOARD()
+    await BOARD_API.WRITE_BOARD(inputs, outputs)
     // window.location.replace("/")
   }
 
   return (
     <CreateDiv method='post' onSubmit={onSubmitResult} >
       <CategorySelect name='group_name' isMedia={isDesktopOrMobile} onChange={onChangeText}>
+        <SortationOption value='non'>선택해주세요.</SortationOption>
         {category === null ? (null) : (
           category.map((element: any) => {
             if (element.user === inputs.id) {
@@ -119,19 +126,22 @@ function CreateBoard() {
           {imageFile.viewUrl === "" ? (<UploadText>사진 업로드</UploadText>) : (
             <UploadImage src={imageFile.viewUrl} isMedia={isDesktopOrMobile} />)}
         </UploadImageDiv>
+        {loding ? (<LodingImg src={Bean}></LodingImg>) : (null)}
         <ResultImageDiv isMedia={isDesktopOrMobile}>
-          <ResultImgText>결과 사진 <br /><br />대기중</ResultImgText>
+          {outputs.id === "" ? (<ResultImgText>
+            결과 사진 <br /><br />대기중
+          </ResultImgText>) : (<ResultImage src={outputs.output_image} isMedia={isDesktopOrMobile} />)}
         </ResultImageDiv>
       </ImageDiv>
       <ResultTextDiv isMedia={isDesktopOrMobile} >
         <ResultText>
-          생장속도 판별 :
+          생장속도 판별 : 미정
         </ResultText>
         <ResultText>
-          병충해 판별 :
+          병충해 판별 : 미정
         </ResultText>
       </ResultTextDiv>
-      <ResultButton type='submit' value='게시글 작성'></ResultButton>
+      {write ? (<ResultButton type='submit' value='게시글 작성'></ResultButton>) : (<ResultButton type='button' value='딸기잎 학습' onClick={onLearning}></ResultButton>)}
     </CreateDiv>
   )
 }
