@@ -15,7 +15,10 @@ import {
   ResultTextDiv,
   ResultButton,
   CategorySelect,
-  LodingImg
+  LearningImg,
+  LodingImg,
+  LodingImgDiv,
+  LodingText
 } from './styled_create_board'
 import { useMediaQuery } from 'react-responsive'
 import axios from 'axios'
@@ -24,6 +27,7 @@ import { SortationOption } from '../modal/styled_modal'
 import { Image, Input, Output } from '../type/Interface'
 import { useQuery } from 'react-query'
 import Bean from '../assets/image/Bean.gif'
+import Loding from '../assets/image/loding.gif'
 function CreateBoard() {
   const isDesktopOrMobile = useMediaQuery({ query: '(max-width:768px)' });
   const [imageFile, setImageFile] = useState<Image>({
@@ -42,6 +46,7 @@ function CreateBoard() {
   })
   const [loding, setLoding] = useState<boolean>(false)
   const [write, setWrite] = useState<boolean>(false)
+  const [learning, setLearning] = useState<boolean>(false)
   const group = useQuery('group', async () => {
     return await PLANTS_GROUP_API.GET_GROUP()
   })
@@ -89,19 +94,26 @@ function CreateBoard() {
   };
   const onLearning = async () => {
     await BOARD_API.INPUT_BOARD(inputs, imageFile)
-    setWrite(true)
     setLoding(true)
     setOutputs(await BOARD_API.OUTPUT_BOARD(inputs))
     setLoding(false)
+    setWrite(true)
   }
   const onSubmitResult = async (e: any) => {
     e.preventDefault();
+    setLearning(true)
     await BOARD_API.WRITE_BOARD(inputs, outputs)
-    // window.location.replace("/")
+    setLearning(false)
+    window.location.replace("/")
   }
 
   return (
-    <CreateDiv method='post' onSubmit={onSubmitResult} >
+    <CreateDiv method='post' onSubmit={onSubmitResult}>
+      {learning ? (
+        <LodingImgDiv>
+          <LodingImg src={Loding}></LodingImg>
+          <LodingText>게시글 작성중 ...</LodingText>
+        </LodingImgDiv>) : (null)}
       <CategorySelect name='group_name' isMedia={isDesktopOrMobile} onChange={onChangeText}>
         <SortationOption value='non'>선택해주세요.</SortationOption>
         {category === null ? (null) : (
@@ -126,14 +138,14 @@ function CreateBoard() {
           {imageFile.viewUrl === "" ? (<UploadText>사진 업로드</UploadText>) : (
             <UploadImage src={imageFile.viewUrl} isMedia={isDesktopOrMobile} />)}
         </UploadImageDiv>
-        {loding ? (<LodingImg src={Bean}></LodingImg>) : (null)}
+        {loding ? (<LearningImg src={Bean}></LearningImg>) : (null)}
         <ResultImageDiv isMedia={isDesktopOrMobile}>
           {outputs.id === "" ? (<ResultImgText>
             결과 사진 <br /><br />대기중
           </ResultImgText>) : (<ResultImage src={outputs.output_image} isMedia={isDesktopOrMobile} />)}
         </ResultImageDiv>
       </ImageDiv>
-      <ResultTextDiv isMedia={isDesktopOrMobile} >
+      <ResultTextDiv isMedia={isDesktopOrMobile}>
         <ResultText>
           생장속도 판별 : 미정
         </ResultText>

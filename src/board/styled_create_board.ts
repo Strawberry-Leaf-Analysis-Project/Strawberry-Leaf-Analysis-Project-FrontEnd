@@ -125,3 +125,24 @@ export const CategorySelect = styled.select<{isMedia: boolean}>`
     height: 30px;
     border-radius: 5px;
 `
+
+export const LearningImg = styled.img`
+`
+export const LodingImgDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    height: 130vh;
+    width: 95vw;
+`
+export const LodingImg = styled.img`
+    position: relative;
+    width: 80px;
+    height: 150px;
+`
+export const LodingText = styled.div`
+    font-size: 25px;
+    font-weight: bold;
+`
