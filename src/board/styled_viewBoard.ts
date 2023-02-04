@@ -82,3 +82,32 @@ export const ImageAfter = styled.img`
     justify-content: center;
     width: 100%;
 `
+export const ViewsText = styled.div`
+    display: flex;
+`
+export const LikesText = styled.div`
+    display: flex;
+`
+export const LikeButtonDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+export const LikeImg = styled.img`
+`
+export const LikeButton = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #FFFFFF;
+    border-radius: 100px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.4s 0s;
+    cursor: pointer;
+    :hover{
+    transition: all ease 0.4s 0s;
+    box-shadow: 0px 0px 80px #FB7575;
+    }
+`
