@@ -106,11 +106,6 @@ class BoardApi {
   GET_ALL_BOARD = async () => {
     return await board.get("/").then((res) => res.data);
   };
-  POST_LIKE_BOARD = async (id: string, num: number) => {
-    await board.post(`/${id}/change_board`, {
-      likes: num,
-    });
-  };
   SEARCH_DATA = async (search: string) => {
     return await board
       .get(`/search/`, {
@@ -119,6 +114,13 @@ class BoardApi {
         },
       })
       .then((res) => res.data);
+  };
+  PUSH_LIKE = async (id: number, is_pushed: string) => {
+    await board
+      .patch(`/${id}/push_like/`, {
+        is_pushed: is_pushed,
+      })
+      .then((res) => console.log(res));
   };
 }
 class DiseaseApi {}
