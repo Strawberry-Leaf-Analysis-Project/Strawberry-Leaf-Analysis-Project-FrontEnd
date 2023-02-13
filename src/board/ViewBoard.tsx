@@ -37,6 +37,7 @@ function ViewBoard() {
   const { state } = useLocation()
   const [isModal, setIsModal] = useState<boolean>(false)
   const [togle, setTogle] = useState<boolean>(false)
+  const [number, setNumber] = useState<number>(0)
   const get_board = useQuery('get_board', async () => {
     return await BOARD_API.GET_BOARD(state.id)
   })
@@ -50,11 +51,13 @@ function ViewBoard() {
   }
   const onLike = () => {
     if (togle) {
-      BOARD_API.POST_LIKE_BOARD(get_board.data.id, get_board.data.likes - 1)
+      BOARD_API.PUSH_LIKE(get_board.data.id, '1')
+      setNumber(0)
       setTogle(false)
     }
     else {
-      BOARD_API.POST_LIKE_BOARD(get_board.data.id, get_board.data.likes + 1)
+      BOARD_API.PUSH_LIKE(get_board.data.id, '0')
+      setNumber(1)
       setTogle(true)
     }
   }
@@ -77,9 +80,10 @@ function ViewBoard() {
               <DateText>{get_board.data.date.substring(0, 10).replace(/-/g, ' . ')}</DateText>
             </DateIdTextDiv>
             <ViewsText>조회수: {get_board.data.views}</ViewsText>
-            <LikesText>좋아요수: {get_board.data.likes}</LikesText>
           </TextDiv>
-          <ExplainText>{get_board.data.explain}</ExplainText>
+          <ExplainText>{get_board.data.explain.split('\n').map((line: string) => {
+            { return <>{line}<br /></> }
+          })}</ExplainText>
           <ImageDiv>
             <BeforeDiv>
               <TextBefore>Before</TextBefore>
@@ -93,9 +97,8 @@ function ViewBoard() {
           <LikeButtonDiv>
             <LikeButton onClick={onLike}>
               {togle ? (<LikeImg src={Like_1} />) : (<LikeImg src={Like_0} />)}
-
             </LikeButton>
-
+            <LikesText>{get_board.data.likes + number}</LikesText>
           </LikeButtonDiv>
         </ViewBoardDiv>
         {idCheck() ?
