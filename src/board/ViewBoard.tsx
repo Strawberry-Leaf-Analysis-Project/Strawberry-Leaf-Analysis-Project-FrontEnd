@@ -71,7 +71,7 @@ function ViewBoard() {
   else {
     return (
       <>
-        <ModalSetting isModal={isModal} setIsModal={setIsModal} />
+        <ModalSetting isModal={isModal} setIsModal={setIsModal} isId={state.id} />
         <ViewBoardDiv>
           <TextDiv>
             <TitleText>{get_board.data.title}</TitleText>

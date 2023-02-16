@@ -11,7 +11,8 @@ import {
 import {
     SelectText
 } from './styled_setting'
-function ModalSetting({ isModal, setIsModal }: any) {
+import { BOARD_API } from './../api/ApiStorage';
+function ModalSetting({ isModal, setIsModal, isId }: any) {
     const [selecttype, SetselectType] = useState<string>("")
     const onSelect = (type: string) => {
         SetselectType(type)
@@ -21,6 +22,10 @@ function ModalSetting({ isModal, setIsModal }: any) {
     }
     const onCancel = () => {
         setIsModal(false)
+    }
+    const onDelete = () => {
+        BOARD_API.DELETE_BOARD(isId)
+        window.location.replace("/growth_board");
     }
     return (
         <CenterDiv>
@@ -38,7 +43,7 @@ function ModalSetting({ isModal, setIsModal }: any) {
                         <TitleText>게시글을 수정</TitleText>
                         <ButtonDiv>
                             <ConfirmButton to='./create_board' onClick={onConfirm} isModal={isModal}>확인</ConfirmButton>
-                            <CancelButton onClick={()=>SetselectType("")} isModal={isModal}>취소</CancelButton>
+                            <CancelButton onClick={() => SetselectType("")} isModal={isModal}>취소</CancelButton>
                         </ButtonDiv>
                     </>
                 ) : (null)}
@@ -47,8 +52,8 @@ function ModalSetting({ isModal, setIsModal }: any) {
                     <>
                         <TitleText>게시글 삭제</TitleText>
                         <ButtonDiv>
-                            <ConfirmButton to='/' onClick={onConfirm} isModal={isModal}>확인</ConfirmButton>
-                            <CancelButton onClick={()=>SetselectType("")} isModal={isModal}>취소</CancelButton>
+                            <ConfirmButton to='/' onClick={() => { onConfirm(); onDelete(); }} isModal={isModal}>확인</ConfirmButton>
+                            <CancelButton onClick={() => SetselectType("")} isModal={isModal}>취소</CancelButton>
                         </ButtonDiv>
                     </>
                 ) : (null)}
