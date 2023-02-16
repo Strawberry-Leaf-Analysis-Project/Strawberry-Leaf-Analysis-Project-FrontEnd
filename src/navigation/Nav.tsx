@@ -51,7 +51,7 @@ function Nav() {
     <NavDiv>
       {!isDesktopOrMobile ?
         (<NavDesktopDiv>
-          <StyledLinkDesktopTitle to='/'>Paradise Farm</StyledLinkDesktopTitle>
+          <StyledLinkDesktopTitle to='/'>Ai Farm</StyledLinkDesktopTitle>
           <SearchDiv onSubmit={onSubmit}>
             <SearchText type='text' placeholder='제목,작성자로 검색하세요.' onChange={onSearch} />
             <SearchSubmit type='submit' />
