@@ -122,6 +122,14 @@ class BoardApi {
       })
       .then((res) => console.log(res));
   };
+  MODIFY_BOARD = async (id: number, data: any) => {
+    await board
+      .patch(`/${id}/change_board/`, {
+        title: data.title,
+        explain: data.explain,
+      })
+      .then((res) => console.log(res));
+  };
 }
 class DiseaseApi {}
 class PlantsDetailApi {}
