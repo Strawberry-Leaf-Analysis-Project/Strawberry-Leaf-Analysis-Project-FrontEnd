@@ -5,7 +5,7 @@ export const DiaryDiv = styled.div`
 export const DiaryBoardDiv = styled.div`
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding-top: 20px;
 `;
 export const DiaryContentDiv = styled.div`
@@ -45,4 +45,15 @@ export const DiaryBoardListDiv = styled.div<{ isMedia: boolean }>`
 export const GroupText = styled.div`
   padding: 10px;
   font-weight: bold;
+`;
+
+export const ModifyDiv = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #5fb636;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
 `;
