@@ -38,6 +38,7 @@ function ViewBoard() {
   const [isModal, setIsModal] = useState<boolean>(false)
   const [togle, setTogle] = useState<boolean>(false)
   const [number, setNumber] = useState<number>(0)
+
   const get_board = useQuery('get_board', async () => {
     return await BOARD_API.GET_BOARD(state.id)
   })
@@ -71,7 +72,7 @@ function ViewBoard() {
   else {
     return (
       <>
-        <ModalSetting isModal={isModal} setIsModal={setIsModal} isId={state.id} />
+        <ModalSetting isModal={isModal} setIsModal={setIsModal} isTitle={get_board.data.title} isExpain={get_board.data.explain} id={state.id} />
         <ViewBoardDiv>
           <TextDiv>
             <TitleText>{get_board.data.title}</TitleText>
