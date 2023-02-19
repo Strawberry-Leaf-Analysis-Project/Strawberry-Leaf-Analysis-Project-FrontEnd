@@ -14,35 +14,40 @@ import {
 import { Diary } from '../type/Interface'
 import { TextInput } from '../login/styled_login'
 import { PLANTS_GROUP_API } from '../api/ApiStorage'
-function ModalDiary({ isModal, setIsModal }: any) {
-    const [inputs,setInputs] = useState<Diary>({
-        name:"",
+function ModalDiary({ isModal, setIsModal, isModify, setIsModify }: any) {
+    const [inputs, setInputs] = useState<Diary>({
+        name: "",
         date: "",
-        status:"0",
-        id:""
+        status: "0",
+        id: ""
     })
+    useEffect(() => {
+        if (isModify) {
+            setIsModal(false)
+        }
+    }, [isModify])
     const onConfirm = () => {
         PLANTS_GROUP_API.POST_GROUP(inputs)
-        setIsModal(true)
+        // setIsModal(true)
     }
     const onCancel = () => {
         setIsModal(false)
     }
-    const onValueChange =(e:any)=>{
+    const onValueChange = (e: any) => {
         setInputs({
             ...inputs,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         })
         console.log(inputs)
     }
-    const {name,date,status,id} = inputs
-    useEffect(()=>{
-        const GET_DATA :any= window.localStorage.getItem('data')
+    const { name, date, status, id } = inputs
+    useEffect(() => {
+        const GET_DATA: any = window.localStorage.getItem('data')
         setInputs({
             ...inputs,
-            ['id']:JSON.parse(GET_DATA)['id']
+            ['id']: JSON.parse(GET_DATA)['id']
         })
-    },[])
+    }, [])
     return (
         <CenterDiv>
             <ModalDiv isModal={isModal}>
@@ -63,7 +68,7 @@ function ModalDiary({ isModal, setIsModal }: any) {
                     </SortationSelect>
                 </TextInputDiv>
                 <ButtonDiv>
-                    <ConfirmButton to='./' onClick={onConfirm} isModal={isModal}>작성</ConfirmButton>
+                    <ConfirmButton to='' onClick={onConfirm} isModal={isModal}>작성</ConfirmButton>
                     <CancelButton onClick={onCancel} isModal={isModal}>취소</CancelButton>
                 </ButtonDiv>
             </ModalDiv>
