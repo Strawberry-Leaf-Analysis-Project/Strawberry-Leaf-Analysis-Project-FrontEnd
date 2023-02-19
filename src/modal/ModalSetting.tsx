@@ -11,8 +11,8 @@ import {
 import {
     SelectText
 } from './styled_setting'
-import { BOARD_API } from './../api/ApiStorage';
-function ModalSetting({ isModal, setIsModal, isId }: any) {
+import { BOARD_API } from '../api/ApiStorage'
+function ModalSetting({ isModal, setIsModal, isTitle, isExpain, id }: any) {
     const [selecttype, SetselectType] = useState<string>("")
     const onSelect = (type: string) => {
         SetselectType(type)
@@ -24,8 +24,7 @@ function ModalSetting({ isModal, setIsModal, isId }: any) {
         setIsModal(false)
     }
     const onDelete = () => {
-        BOARD_API.DELETE_BOARD(isId)
-        window.location.replace("/growth_board");
+        BOARD_API.DELETE_BOARD(id)
     }
     return (
         <CenterDiv>
@@ -42,7 +41,7 @@ function ModalSetting({ isModal, setIsModal, isId }: any) {
                     <>
                         <TitleText>게시글을 수정</TitleText>
                         <ButtonDiv>
-                            <ConfirmButton to='./create_board' onClick={onConfirm} isModal={isModal}>확인</ConfirmButton>
+                            <ConfirmButton to='/growth_board/modify_board' state={{ isTitle: isTitle, isExpain: isExpain, id: id }} onClick={() => { onConfirm(); }} isModal={isModal}>확인</ConfirmButton>
                             <CancelButton onClick={() => SetselectType("")} isModal={isModal}>취소</CancelButton>
                         </ButtonDiv>
                     </>
