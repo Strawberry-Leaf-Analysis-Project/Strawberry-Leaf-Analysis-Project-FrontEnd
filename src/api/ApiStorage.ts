@@ -146,7 +146,11 @@ class PlantsGroupApi {
         status: data.status,
         id: data.id,
       })
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.status === 200) {
+          window.location.replace("/my_growth_diary");
+        }
+      });
   };
 }
 export const BOARD_API = new BoardApi();
