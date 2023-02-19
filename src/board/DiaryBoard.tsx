@@ -4,15 +4,18 @@ import { PLANTS_GROUP_API } from '../api/ApiStorage'
 import {
     DiaryBoardDiv,
     GroupText,
-    DiaryDiv
+    DiaryDiv,
+    ModifyDiv
 } from './styled_diary'
 import { EditIcon, EditIconDiv, LodingImage } from './styled_board'
 import loding from '../assets/image/loding.gif'
 import { onModal } from './onModal'
 import Edit from '../assets/icons/Edit.svg'
 import ModalDiary from '../modal/ModalDiary'
+import ModalModify from './../modal/ModalModify';
 function DiaryBoard() {
     const [isModal, setIsModal] = useState<boolean>(false)
+    const [isModify, setIsModify] = useState<boolean>(false)
     const [id, setId] = useState('')
     const group = useQuery('group', async () => {
         return await PLANTS_GROUP_API.GET_GROUP()
@@ -39,6 +42,8 @@ function DiaryBoard() {
                                     <GroupText>{element.date.substring(0, 10).replace(/-/g, ' . ')}</GroupText>
 
                                     <GroupText>{element.status == '0' ? ('성장중') : ('성장완료')}</GroupText>
+
+                                    <ModifyDiv onClick={() => { onModal(isModify, setIsModify); }}>수정</ModifyDiv>
                                 </DiaryBoardDiv>
                             )
                         }
@@ -50,14 +55,15 @@ function DiaryBoard() {
     }
     return (
         <DiaryDiv>
-            <ModalDiary isModal={isModal} setIsModal={setIsModal} />
+            <ModalDiary isModal={isModal} setIsModal={setIsModal} isModify={isModify} setIsModify={setIsModify} />
+            <ModalModify isModal={isModal} setIsModal={setIsModal} isModify={isModify} setIsModify={setIsModify} />
             <DiaryBoardDiv>
                 <GroupText>식물명</GroupText>
                 <GroupText>식재일</GroupText>
                 <GroupText>상태</GroupText>
             </DiaryBoardDiv>
             {groupView()}
-            <EditIconDiv onClick={() => onModal(isModal, setIsModal)}>
+            <EditIconDiv onClick={() => { onModal(isModal, setIsModal) }}>
                 <EditIcon src={Edit} />
             </EditIconDiv>
         </DiaryDiv>
