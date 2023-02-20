@@ -2,7 +2,7 @@ export interface Diary {
   name: string;
   date: string;
   status: string;
-  id: string;
+  id: string | number;
 }
 export interface Image {
   imageFile: File | any;
