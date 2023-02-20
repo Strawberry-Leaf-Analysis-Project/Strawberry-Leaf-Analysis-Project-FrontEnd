@@ -16,7 +16,9 @@ import ModalModify from './../modal/ModalModify';
 function DiaryBoard() {
     const [isModal, setIsModal] = useState<boolean>(false)
     const [isModify, setIsModify] = useState<boolean>(false)
-    const [id, setId] = useState('')
+    const [id, setId] = useState<string>('')
+    const [isName, setIsName] = useState<string>('')
+    const [groupId, setGroupId] = useState<string>('')
     const group = useQuery('group', async () => {
         return await PLANTS_GROUP_API.GET_GROUP()
     })
@@ -33,7 +35,9 @@ function DiaryBoard() {
         else {
             return (
                 <>
-                    {group.data.map((element: any) => {
+                    {group.data.sort((a: any, b: any) => {
+                        return +new Date(b.date) - +new Date(a.date)
+                    }).map((element: any) => {
                         if (element.user === id) {
                             return (
                                 <DiaryBoardDiv>
@@ -43,12 +47,12 @@ function DiaryBoard() {
 
                                     <GroupText>{element.status == '0' ? ('성장중') : ('성장완료')}</GroupText>
 
-                                    <ModifyDiv onClick={() => { onModal(isModify, setIsModify); }}>수정</ModifyDiv>
+                                    <ModifyDiv onClick={() => { onModal(isModify, setIsModify); setIsName(element.name); setGroupId(element.id) }}>수정</ModifyDiv>
                                 </DiaryBoardDiv>
                             )
                         }
-
-                    })}
+                    })
+                    }
                 </>
             )
         }
@@ -56,7 +60,7 @@ function DiaryBoard() {
     return (
         <DiaryDiv>
             <ModalDiary isModal={isModal} setIsModal={setIsModal} isModify={isModify} setIsModify={setIsModify} />
-            <ModalModify isModal={isModal} setIsModal={setIsModal} isModify={isModify} setIsModify={setIsModify} />
+            <ModalModify isModal={isModal} setIsModal={setIsModal} isModify={isModify} setIsModify={setIsModify} isName={isName} groupId={groupId} />
             <DiaryBoardDiv>
                 <GroupText>식물명</GroupText>
                 <GroupText>식재일</GroupText>
