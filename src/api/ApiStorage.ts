@@ -152,6 +152,26 @@ class PlantsGroupApi {
         }
       });
   };
+  PATCH_GROUP_STATUS = async (id: number, status: string) => {
+    await plants_group
+      .patch(`/${id}/change_status/`, {
+        status: status,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+  PATCH_GROUP_NAME = async (id: number, name: string) => {
+    await plants_group
+      .patch(`/${id}/change_name/`, {
+        name: name,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          window.location.replace("/my_growth_diary");
+        }
+      });
+  };
 }
 export const BOARD_API = new BoardApi();
 
