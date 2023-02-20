@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { PLANTS_GROUP_API } from '../api/ApiStorage'
 import { TextInput } from '../login/styled_login'
 import { Diary } from '../type/Interface'
 import {
@@ -14,12 +15,12 @@ import {
     TitleText
 } from './styled_modal'
 
-function ModalModify({ isModal, setIsModal, isModify, setIsModify }: any) {
+function ModalModify({ isModal, setIsModal, isModify, setIsModify, isName, groupId }: any) {
     const [inputs, setInputs] = useState<Diary>({
-        name: "",
+        name: isName,
         date: "",
         status: "0",
-        id: ""
+        id: ''
     })
     useEffect(() => {
         if (isModal) {
@@ -27,8 +28,8 @@ function ModalModify({ isModal, setIsModal, isModify, setIsModify }: any) {
         }
     }, [isModal])
     const onConfirm = () => {
-        // PLANTS_GROUP_API.POST_GROUP(inputs)
-        // setIsModal(true)
+        PLANTS_GROUP_API.PATCH_GROUP_NAME(groupId, inputs.name)
+        PLANTS_GROUP_API.PATCH_GROUP_STATUS(groupId, inputs.status)
     }
     const onCancel = () => {
         setIsModify(false)
@@ -40,14 +41,7 @@ function ModalModify({ isModal, setIsModal, isModify, setIsModify }: any) {
         })
         console.log(inputs)
     }
-    const { name, date, status, id } = inputs
-    useEffect(() => {
-        const GET_DATA: any = window.localStorage.getItem('data')
-        setInputs({
-            ...inputs,
-            ['id']: JSON.parse(GET_DATA)['id']
-        })
-    }, [])
+    const { name, date, status } = inputs
     return (
         <CenterDiv>
             <ModalDiv isModal={isModify}>
