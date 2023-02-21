@@ -13,9 +13,10 @@ export const ViewBoardDiv = styled.div`
   flex-direction: column;
   margin-left: 10%;
   margin-right: 10%;
-  padding-top: 5%;
+  padding-top: 2%;
   gap: 20px;
   font-weight: bold;
+  height: 110vh;
 `;
 export const TextDiv = styled.div`
   display: flex;
@@ -87,7 +88,7 @@ export const ViewsText = styled.div`
 `;
 export const LikesText = styled.div`
   display: flex;
-  font-size: 20px;
+  font-size: 15px;
 `;
 export const LikeButtonDiv = styled.div`
   display: flex;
@@ -101,8 +102,8 @@ export const LikeButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-color: #ffffff;
   border-radius: 100px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -110,6 +111,6 @@ export const LikeButton = styled.div`
   cursor: pointer;
   :hover {
     transition: all ease 0.4s 0s;
-    box-shadow: 0px 0px 80px #fb7575;
+    box-shadow: 0px 0px 40px #fb7575;
   }
 `;
