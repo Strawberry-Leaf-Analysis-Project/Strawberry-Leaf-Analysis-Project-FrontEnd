@@ -9,10 +9,8 @@ import { SearchDiv } from './search_styled';
 function SearchBoard() {
     const { state } = useLocation()
     const isDesktopOrMobile = useMediaQuery({ query: '(max-width:768px)' });
-    console.log(state.text)
     const search_board = useQuery('search_board', async () => {
         return await BOARD_API.SEARCH_DATA(state.text)
-
     })
     return (
         <SearchDiv>
