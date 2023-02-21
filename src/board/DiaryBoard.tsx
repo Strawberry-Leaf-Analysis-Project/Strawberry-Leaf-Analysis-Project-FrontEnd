@@ -65,6 +65,7 @@ function DiaryBoard() {
                 <GroupText>식물명</GroupText>
                 <GroupText>식재일</GroupText>
                 <GroupText>상태</GroupText>
+                <GroupText>설정</GroupText>
             </DiaryBoardDiv>
             {groupView()}
             <EditIconDiv onClick={() => { onModal(isModal, setIsModal) }}>
