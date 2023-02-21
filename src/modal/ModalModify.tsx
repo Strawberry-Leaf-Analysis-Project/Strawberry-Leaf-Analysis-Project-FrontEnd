@@ -12,7 +12,8 @@ import {
     SortationOption,
     SortationSelect,
     TextInputDiv,
-    TitleText
+    TitleText,
+    WarningText
 } from './styled_modal'
 
 function ModalModify({ isModal, setIsModal, isModify, setIsModify, isName, groupId }: any) {
@@ -22,17 +23,38 @@ function ModalModify({ isModal, setIsModal, isModify, setIsModify, isName, group
         status: "0",
         id: ''
     })
+
     useEffect(() => {
         if (isModal) {
             setIsModify(false)
         }
     }, [isModal])
+    useEffect(() => {
+        setInputs({
+            name: isName,
+            date: "",
+            status: "0",
+            id: ''
+        })
+    }, [isName])
+    const [warning, setWarning] = useState<boolean>(false)
     const onConfirm = () => {
+        if (inputs.name === '') {
+            setWarning(true)
+            return
+        }
+        setWarning(false)
         PLANTS_GROUP_API.PATCH_GROUP_NAME(groupId, inputs.name)
         PLANTS_GROUP_API.PATCH_GROUP_STATUS(groupId, inputs.status)
     }
     const onCancel = () => {
         setIsModify(false)
+        setInputs({
+            name: isName,
+            date: "",
+            status: "0",
+            id: ''
+        })
     }
     const onValueChange = (e: any) => {
         setInputs({
@@ -57,6 +79,7 @@ function ModalModify({ isModal, setIsModal, isModify, setIsModify, isName, group
                         <SortationOption value='1'>성장완료</SortationOption>
                     </SortationSelect>
                 </TextInputDiv>
+                {warning ? (<WarningText>1 글자 이상 입력해주세요</WarningText>) : (null)}
                 <ButtonDiv>
                     <ConfirmButton to='' onClick={onConfirm} isModal={isModify}>수정</ConfirmButton>
                     <CancelButton onClick={onCancel} isModal={isModify}>취소</CancelButton>
