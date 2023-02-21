@@ -9,7 +9,8 @@ import {
     TitleText
 } from './styled_modal'
 import {
-    SelectText
+    SelectText,
+    SelectDiv
 } from './styled_setting'
 import { BOARD_API } from '../api/ApiStorage'
 function ModalSetting({ isModal, setIsModal, isTitle, isExpain, id }: any) {
@@ -30,11 +31,11 @@ function ModalSetting({ isModal, setIsModal, isTitle, isExpain, id }: any) {
         <CenterDiv>
             <ModalDiv isModal={isModal}>
                 {selecttype === '' ? (
-                    <>
+                    <SelectDiv>
                         <SelectText onClick={(() => onSelect('Modify'))}>게시글을 수정</SelectText>
                         <SelectText onClick={() => onSelect('Delete')}>게시글 삭제</SelectText>
                         <SelectButton onClick={onCancel} isModal={isModal}>돌아가기</SelectButton>
-                    </>
+                    </SelectDiv>
                 ) : (null)}
 
                 {selecttype === 'Modify' ? (
