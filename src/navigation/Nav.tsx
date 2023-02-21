@@ -63,7 +63,7 @@ function Nav() {
         </NavDesktopDiv>)
         :
         (<NavMobileDiv>
-          <StyledLinkMobileTitle to='/' onClick={() => setTogle(false)}>Paradise Farm</StyledLinkMobileTitle>
+          <StyledLinkMobileTitle to='/' onClick={() => setTogle(false)}>Ai Farm</StyledLinkMobileTitle>
           <SearchDiv onSubmit={onSubmit}>
             <SearchText placeholder='제목,작성자로 검색하세요.' onChange={onSearch} />
             <SearchSubmit type='submit' />
