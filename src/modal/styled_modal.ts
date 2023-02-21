@@ -29,11 +29,10 @@ export const CenterDiv = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const ModalDiv = styled.div<{ isModal: boolean }>`
+export const ModalDiv = styled.form<{ isModal: boolean }>`
   display: flex;
   position: fixed;
-  height: 200px;
-  width: 280px;
+  width: 240px;
   background: white;
   border-radius: 8px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -41,10 +40,11 @@ export const ModalDiv = styled.div<{ isModal: boolean }>`
   z-index: 999;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   ${(props) => (props.isModal ? modal : cloose)};
   transition: all ease 0.3s;
-  padding: 10px;
+  padding: 20px;
+  gap: 10px;
 `;
 export const ButtonDiv = styled.div`
   display: flex;
@@ -52,6 +52,7 @@ export const ButtonDiv = styled.div`
 `;
 export const TitleText = styled.div`
   font-weight: bold;
+  padding: 15px;
 `;
 export const ConfirmButton = styled(Link)<{ isModal: boolean }>`
   display: flex;
@@ -120,10 +121,14 @@ export const SortationSelect = styled.select`
 `;
 export const SortationOption = styled.option``;
 export const ContnetText = styled.div`
-  margin-top: 10px;
+  margin-top: 7px;
 `;
 export const TextInputDiv = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 7px;
   margin: 10px;
+`;
+export const WarningText = styled.div`
+  font-size: 12px;
+  font-weight: bold;
 `;
