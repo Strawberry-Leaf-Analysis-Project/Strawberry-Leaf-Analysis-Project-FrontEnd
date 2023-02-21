@@ -29,6 +29,9 @@ export const CardForm = (data: any) => {
     if (data.isLoading) {
         return <LodingImage src={loding} />
     }
+    if (data.data.length === 0) {
+        return <h3>검색 결과가 없습니다.</h3>
+    }
     else {
         return (
             <>
