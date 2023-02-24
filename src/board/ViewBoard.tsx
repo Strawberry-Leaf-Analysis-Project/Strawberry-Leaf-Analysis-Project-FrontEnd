@@ -36,11 +36,12 @@ import Like_1 from '../assets/icons/Like_1.svg'
 function ViewBoard() {
   const { state } = useLocation()
   const [isModal, setIsModal] = useState<boolean>(false)
-  const [togle, setTogle] = useState<boolean>(false)
-  const [number, setNumber] = useState<number>(0)
-
+  const [togle, setTogle] = useState<number>(0)
   const get_board = useQuery('get_board', async () => {
     return await BOARD_API.GET_BOARD(state.id)
+  })
+  const get_board_like = useQuery('get_board_like', async () => {
+    return await BOARD_API.GET_BOARD_LIKE(state.id)
   })
   const idCheck = () => {
     if (userData !== null && userData.id === get_board.data.user) {
@@ -51,18 +52,24 @@ function ViewBoard() {
     }
   }
   const onLike = () => {
-    if (togle) {
+    if (get_board_like.data == 1 && togle === 0) {
       BOARD_API.PUSH_LIKE(get_board.data.id, '1')
-      setNumber(0)
-      setTogle(false)
+      setTogle(-1)
     }
-    else {
+    if (get_board_like.data == 1 && togle === -1) {
       BOARD_API.PUSH_LIKE(get_board.data.id, '0')
-      setNumber(1)
-      setTogle(true)
+      setTogle(0)
+    }
+    if (get_board_like.data == 0 && togle === 0) {
+      BOARD_API.PUSH_LIKE(get_board.data.id, '0')
+      setTogle(1)
+    }
+    if (get_board_like.data == 0 && togle === 1) {
+      BOARD_API.PUSH_LIKE(get_board.data.id, '1')
+      setTogle(0)
     }
   }
-  if (get_board.isLoading) {
+  if (get_board.isLoading && get_board_like.isLoading) {
     return (
       <LodingDiv>
         <Loding src={loding}></Loding>
@@ -97,9 +104,9 @@ function ViewBoard() {
           </ImageDiv>
           <LikeButtonDiv>
             <LikeButton onClick={onLike}>
-              {togle ? (<LikeImg src={Like_1} />) : (<LikeImg src={Like_0} />)}
+              {get_board_like.data + togle ? (<LikeImg src={Like_1} />) : (<LikeImg src={Like_0} />)}
             </LikeButton>
-            <LikesText>{get_board.data.likes + number}</LikesText>
+            <LikesText>{get_board.data.likes + togle}</LikesText>
           </LikeButtonDiv>
         </ViewBoardDiv>
         {idCheck() ?
