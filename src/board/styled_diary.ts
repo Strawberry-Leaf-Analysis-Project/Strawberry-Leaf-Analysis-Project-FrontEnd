@@ -45,6 +45,7 @@ export const DiaryBoardListDiv = styled.div<{ isMedia: boolean }>`
 export const GroupText = styled.div`
   padding: 10px;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const ModifyDiv = styled.div`

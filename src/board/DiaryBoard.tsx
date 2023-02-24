@@ -13,6 +13,7 @@ import { onModal } from './onModal'
 import Edit from '../assets/icons/Edit.svg'
 import ModalDiary from '../modal/ModalDiary'
 import ModalModify from './../modal/ModalModify';
+import { useNavigate } from 'react-router-dom'
 function DiaryBoard() {
     const [isModal, setIsModal] = useState<boolean>(false)
     const [isModify, setIsModify] = useState<boolean>(false)
@@ -22,6 +23,15 @@ function DiaryBoard() {
     const group = useQuery('group', async () => {
         return await PLANTS_GROUP_API.GET_GROUP()
     })
+    const navigate = useNavigate()
+    const goGroup = (user: number, name: string) => {
+        navigate(`/my_growth_diary/${user}/${name}`, {
+            state: {
+                name: name,
+                user: user,
+            }
+        })
+    }
     useEffect(() => {
         const GET_DATA: any = window.localStorage.getItem('data')
         setId(JSON.parse(GET_DATA)['id'])
@@ -41,7 +51,7 @@ function DiaryBoard() {
                         if (element.user === id) {
                             return (
                                 <DiaryBoardDiv>
-                                    <GroupText>{element.name}</GroupText>
+                                    <GroupText onClick={() => { goGroup(element.user, element.name); }}>{element.name}</GroupText>
 
                                     <GroupText>{element.date.substring(0, 10).replace(/-/g, ' . ')}</GroupText>
 
