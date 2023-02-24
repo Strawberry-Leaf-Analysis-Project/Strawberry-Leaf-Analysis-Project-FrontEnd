@@ -16,6 +16,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyle } from './GlobalStyle';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import ModifyBoard from './board/ModifyBoard';
+import GroupBoard from './board/GroupBoard';
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ function App() {
           <Route path='/growth_board/create_board' element={<CreateBoard />} />
           <Route path='/growth_board/modify_board' element={<ModifyBoard />} />
           <Route path='/search/:text' element={<SearchBoard />} />
+          <Route path='/my_growth_diary/:user/:name' element={<GroupBoard />} />
           <Route path='/Singin' element={<Signin />} />
           <Route path='/Singin/:type' element={<InfoSearch />} />
           <Route path='/Singup' element={<SignUp />} />
