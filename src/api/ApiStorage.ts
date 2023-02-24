@@ -86,7 +86,10 @@ class BoardApi {
       .then((res) => console.log(res.data));
   };
   GET_BOARD = async (id: any) => {
-    return await board.get(`/${id}/`).then((res) => res.data);
+    return await board.get(`/${id}/`).then((res) => res.data.data);
+  };
+  GET_BOARD_LIKE = async (id: any) => {
+    return await board.get(`/${id}/`).then((res) => res.data.is_like);
   };
   GET_USER_BOARD = async () => {
     return await board.get("/personal_board/").then((res) => res.data);
@@ -129,6 +132,19 @@ class BoardApi {
         explain: data.explain,
       })
       .then((res) => console.log(res));
+  };
+  GET_BOARD_GROUP_LIST = async (name: string) => {
+    return await board
+      .get("/group_board_list/", {
+        params: {
+          name: name,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          return res.data;
+        }
+      });
   };
 }
 class DiseaseApi {}
