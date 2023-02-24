@@ -22,15 +22,14 @@ export const CardForm = (data: any) => {
             }
         })
     }
-    console.log(data.data)
     if (data.data === undefined) {
-        return null
+        return <h3>결과가 없습니다.</h3>
+    }
+    if (data.data.length === 0) {
+        return <h3>결과가 없습니다.</h3>
     }
     if (data.isLoading) {
         return <LodingImage src={loding} />
-    }
-    if (data.data.length === 0) {
-        return <h3>검색 결과가 없습니다.</h3>
     }
     else {
         return (
