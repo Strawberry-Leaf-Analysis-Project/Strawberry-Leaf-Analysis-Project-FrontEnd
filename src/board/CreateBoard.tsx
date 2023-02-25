@@ -79,7 +79,10 @@ function CreateBoard() {
   const onChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any): void => {
     console.log("사진 업로드 버튼 클릭");
     e.preventDefault();
-
+    setOutputs({
+      id: "",
+      output_image: ""
+    })
     const fileReader = new FileReader();
     if (e.target.files[0]) {
       fileReader.readAsDataURL(e.target.files[0]);
