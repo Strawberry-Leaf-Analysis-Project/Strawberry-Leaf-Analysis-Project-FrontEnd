@@ -16,7 +16,6 @@ export const ViewBoardDiv = styled.div`
   padding-top: 2%;
   gap: 20px;
   font-weight: bold;
-  height: 110vh;
 `;
 export const TextDiv = styled.div`
   display: flex;
@@ -113,4 +112,24 @@ export const LikeButton = styled.div`
     transition: all ease 0.4s 0s;
     box-shadow: 0px 0px 40px #fb7575;
   }
+`;
+export const SegmentDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+export const SegmentText = styled.div`
+  font-size: 18px;
+`;
+export const SegmentImgDiv = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+`;
+export const SegmentImg = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 `;
