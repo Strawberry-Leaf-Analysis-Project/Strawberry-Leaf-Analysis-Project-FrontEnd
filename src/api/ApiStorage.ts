@@ -6,6 +6,9 @@ const board = axios.create({
 const member = axios.create({
   baseURL: "/member",
 });
+const plants_detail = axios.create({
+  baseURL: "/plants_detail",
+});
 const plants_group = axios.create({
   baseURL: "/plants_group",
 });
@@ -74,7 +77,10 @@ class BoardApi {
   OUTPUT_BOARD = async (text: Input) => {
     const formData = new FormData();
     formData.append("group_name", text.group_name);
-    return await board.post("/output_image/", formData).then((res) => res.data);
+    return await board.post("/output_image/", formData).then((res) => {
+      console.log(res);
+      return res.data;
+    });
   };
   WRITE_BOARD = async (input: Input, output: Output) => {
     await board
@@ -148,7 +154,17 @@ class BoardApi {
   };
 }
 class DiseaseApi {}
-class PlantsDetailApi {}
+class PlantsDetailApi {
+  GET_DISEASE = async (board_id: string) => {
+    return await plants_detail
+      .get("/disease_leaves/", {
+        params: {
+          board_id: board_id,
+        },
+      })
+      .then((res) => res.data);
+  };
+}
 class PlantsByDiseaseApi {}
 class PlantsGroupApi {
   GET_GROUP = async () => {
@@ -192,5 +208,7 @@ class PlantsGroupApi {
 export const BOARD_API = new BoardApi();
 
 export const MEMBER_API = new MemberApi();
+
+export const PLANTS_DETAIL_API = new PlantsDetailApi();
 
 export const PLANTS_GROUP_API = new PlantsGroupApi();
