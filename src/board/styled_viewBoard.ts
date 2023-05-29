@@ -42,7 +42,8 @@ export const ExplainText = styled.div`
   border-bottom: 0.5px solid black;
 `;
 export const ImageDiv = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
   justify-content: space-around;
   gap: 10px;
 `;
@@ -61,8 +62,8 @@ export const ImageBefore = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   margin-bottom: 10px;
+  /* width: 600px; */
 `;
 
 export const AfterDiv = styled.div`
@@ -80,7 +81,7 @@ export const ImageAfter = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  /* width: 600px; */
 `;
 export const ViewsText = styled.div`
   display: flex;
@@ -123,7 +124,7 @@ export const SegmentText = styled.div`
 `;
 export const SegmentImgDiv = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 25%);
   gap: 10px;
 `;
 export const SegmentImg = styled.img`
