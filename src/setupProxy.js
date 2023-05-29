@@ -1,37 +1,37 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const BasicApi = 'http://127.0.0.1:8000'
 const BasicServerApi = 'http://127.0.0.1'
-const api = '/api'
+const api = 'api'
 module.exports = function (app) {
   app.use(
-    `${api}/member`
+    '/member'
     ,
     createProxyMiddleware({
-      target: BasicServerApi,
+      target: BasicApi,
       changeOrigin: true,
     })
   );
   app.use(
-    `${api}/board`
+    '/board'
     ,
     createProxyMiddleware({
-      target: BasicServerApi,
+      target: BasicApi,
       changeOrigin: true,
     })
   );
   app.use(
-    `${api}/plants_group`
+    '/plants_group'
     ,
     createProxyMiddleware({
-      target: BasicServerApi,
+      target: BasicApi,
       changeOrigin: true,
     })
   );
   app.use(
-    `${api}/plants_detail`
+    '/plants_detail'
     ,
     createProxyMiddleware({
-      target: BasicServerApi,
+      target: BasicApi,
       changeOrigin: true,
     })
   );

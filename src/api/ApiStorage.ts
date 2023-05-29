@@ -2,16 +2,16 @@ import { Diary, Image, Input, Output } from "../type/Interface";
 import axios from "axios";
 const api = "/api";
 const board = axios.create({
-  baseURL: `${api}/board`,
+  baseURL: "/board",
 });
 const member = axios.create({
-  baseURL: `${api}/member`,
+  baseURL: "/member",
 });
 const plants_detail = axios.create({
-  baseURL: `${api}/plants_detail`,
+  baseURL: "/plants_detail",
 });
 const plants_group = axios.create({
-  baseURL: `${api}/plants_group`,
+  baseURL: "/plants_group",
 });
 class MemberApi {
   SING_UP = async (
