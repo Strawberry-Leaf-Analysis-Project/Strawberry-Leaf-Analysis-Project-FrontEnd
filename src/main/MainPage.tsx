@@ -28,17 +28,17 @@ import Before from '../assets/image/Before.jpg'
 import After from '../assets/image/After.jpg'
 function MainPage() {
     const ZoomInScrollOut = batch(StickyOut(), Fade());
-    const FadeUp = batch(Fade(), Move(),StickyOut(),);
+    const FadeUp = batch(Fade(), Move(), StickyOut(),);
     return (
         <ScrollContainer >
             <ScrollPage>
                 <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -130))}>
-                    <FirstText>Paradise Farm 으로 오신것을 환영합니다. 😃</FirstText>
+                    <FirstText>Ai Farm 으로 오신것을 환영합니다. 😃</FirstText>
                 </Animator>
             </ScrollPage>
             <ScrollPage>
                 <Animator animation={FadeUp}>
-                    <FirstText>Instance Segmentation <br/>학습 결과 입니다.</FirstText>
+                    <FirstText>Instance Segmentation <br />학습 결과 입니다.</FirstText>
                     <ImageDiv>
                         <LableDiv>
                             <LableText>Before</LableText>
