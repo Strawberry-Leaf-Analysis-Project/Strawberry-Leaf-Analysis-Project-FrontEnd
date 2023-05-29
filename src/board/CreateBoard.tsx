@@ -21,7 +21,6 @@ import {
   LodingText
 } from './styled_create_board'
 import { useMediaQuery } from 'react-responsive'
-import axios from 'axios'
 import { BOARD_API, PLANTS_GROUP_API } from '../api/ApiStorage'
 import { SortationOption } from '../modal/styled_modal'
 import { Image, Input, Output } from '../type/Interface'
@@ -141,21 +140,13 @@ function CreateBoard() {
           {imageFile.viewUrl === "" ? (<UploadText>사진 업로드</UploadText>) : (
             <UploadImage src={imageFile.viewUrl} isMedia={isDesktopOrMobile} />)}
         </UploadImageDiv>
-        {loding ? (<LearningImg src={Bean}></LearningImg>) : (null)}
+        {loding ? (<LearningImg src={Bean} isMedia={isDesktopOrMobile}></LearningImg>) : (null)}
         <ResultImageDiv isMedia={isDesktopOrMobile}>
           {outputs.id === "" ? (<ResultImgText>
             결과 사진 <br /><br />대기중
           </ResultImgText>) : (<ResultImage src={outputs.output_image} isMedia={isDesktopOrMobile} />)}
         </ResultImageDiv>
       </ImageDiv>
-      <ResultTextDiv isMedia={isDesktopOrMobile}>
-        <ResultText>
-          생장속도 판별 : 미정
-        </ResultText>
-        <ResultText>
-          병충해 판별 : 미정
-        </ResultText>
-      </ResultTextDiv>
       {write ? (<ResultButton type='submit' value='게시글 작성'></ResultButton>) : (<ResultButton type='button' value='딸기잎 학습' onClick={onLearning}></ResultButton>)}
     </CreateDiv>
   )
