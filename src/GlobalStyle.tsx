@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         padding: 0px;
         margin: 0px;
-        background-color: #CCE4FC;
+        background-color: #E2F1FF;
         color: black;
         font-family: 'NanumSquareNeo-R';
         /* display: flex;
