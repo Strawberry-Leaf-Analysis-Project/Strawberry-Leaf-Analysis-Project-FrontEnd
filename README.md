@@ -3,7 +3,8 @@
 > The front-end part of the strawberry leaf analysis project<br>딸기 잎 분석 프로젝트의 프론트엔드 파트
 
 # Demonstration video
-<img width="50%" src="https://github.com/Strawberry-Leaf-Analysis-Project/Strawberry-Leaf-Analysis-Project-FrontEnd/assets/91197026/ecc85d16-1131-427f-b084-fcc7fadc8c20"/>
+<img width="75%" src="https://github.com/Strawberry-Leaf-Analysis-Project/Strawberry-Leaf-Analysis-Project-FrontEnd/assets/91197026/e7197886-a27b-4362-917f-af11aaa4eb10.gif"/>
+
 
 # Explain
 
