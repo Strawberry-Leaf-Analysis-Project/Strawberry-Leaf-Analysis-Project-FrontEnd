@@ -3,11 +3,9 @@
 > The front-end part of the strawberry leaf analysis project<br>딸기 잎 분석 프로젝트의 프론트엔드 파트
 
 # Demonstration video
-<img width="75%" src="https://github.com/Strawberry-Leaf-Analysis-Project/Strawberry-Leaf-Analysis-Project-FrontEnd/assets/91197026/e7197886-a27b-4362-917f-af11aaa4eb10.gif"/>
-
+https://github.com/Strawberry-Leaf-Analysis-Project/Strawberry-Leaf-Analysis-Project-FrontEnd/assets/91197026/3b3674d0-938b-4566-9869-9d585f3c4887
 
 # Explain
-
 
 - It is in charge of the front end of the strawberry leaf growth confirmation service that is underway as an industry-academia-related project.<br>산학 연계 프로젝트로 진행하고 있는 딸기 잎에 따른 생장상태 파악 서비스의 프론트엔드 파트를 담당하는 부분 입니다.
 
